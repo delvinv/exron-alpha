@@ -4,10 +4,12 @@ import VolunteerCard from '@/components/VolunteerCard.vue'
 import RawData from '@/services/RawData.js'
 
 let volunteers = ref(null)
+let orgName = ref(null)
 
 onMounted(() => {
   // Need to import data here...
   volunteers.value = RawData.getVolunteers();
+  orgName.value = RawData.getOrgName();
 })
 </script>
 
@@ -16,6 +18,8 @@ onMounted(() => {
   <div class="volunteers">
     <VolunteerCard v-for="volunteer in volunteers" :key="volunteer.id" :volunteer="volunteer" />
   </div>
+
+  <h1>Roles available at {{ orgName }}</h1>
 </template>
 
 <style scoped>

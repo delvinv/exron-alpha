@@ -1,3 +1,5 @@
+// Name of organisation
+const orgName = "DCOC";
 // Number of occasions for which to generate a roster
 const occasions = 4;
 // Suited for organisations that schedule for weekly occurrences (i.e. each occasion = one week)
@@ -388,6 +390,9 @@ export default {
     },
     isWeeklySchedule(){
         return weeklySchedule;
+    },
+    getOrgName(){
+        return orgName;
     }
     
 }
