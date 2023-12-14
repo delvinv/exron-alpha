@@ -5,6 +5,8 @@ export const useSettingsStore = defineStore({
   id: 'setting',
   state: () => ({
     orgName: null,
+    occasions: 4,
+    weeklySchedule: true,
     loading: false,
     error: null
   }),
@@ -16,6 +18,9 @@ export const useSettingsStore = defineStore({
   actions: {
     setOrgName(name) {
       this.orgName = name;
+    },
+    setOccasions(num) {
+      this.occasions = num;
     }
     /* async fetchPosts() {
       this.posts = []

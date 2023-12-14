@@ -251,67 +251,67 @@ const volunteers =
 const roles = [
     {
       "id": 1,
-      "task-name": "Audio",
+      "name": "Audio",
       "numbers": 1
     },
     {
       "id": 2,
-      "task-name": "Visual",
+      "name": "Visual",
       "numbers": 1
     },
     {
       "id": 3,
-      "task-name": "Musicians",
+      "name": "Musicians",
       "numbers": 2
     },
     {
       "id": 4,
-      "task-name": "Reading",
+      "name": "Reading",
       "numbers": 1
     },
     {
       "id": 5,
-      "task-name": "Speaker",
+      "name": "Speaker",
       "numbers": 1
     },
     {
       "id": 6,
-      "task-name": "Communion Helpers",
+      "name": "Communion Helpers",
       "numbers": 4
     },
     {
       "id": 7,
-      "task-name": "Communion Message",
+      "name": "Communion Message",
       "numbers": 1
     },
     {
       "id": 8,
-      "task-name": "Communion Setup",
+      "name": "Communion Setup",
       "numbers": 2
     },
     {
       "id": 9,
-      "task-name": "Communion Washup",
+      "name": "Communion Washup",
       "numbers": 1
     },
     {
       "id": 10,
-      "task-name": "Counters",
+      "name": "Counters",
       "numbers": 2
     },
     {
       "id": 11,
-      "task-name": "Kids Min",
+      "name": "Kids Min",
       "numbers": 1
     },
     {
       "id": 12,
-      "task-name": "Morning Tea",
+      "name": "Morning Tea",
       "numbers": 4
     },
     {
       "id": 13,
-      "task-name": "Welcome",
+      "name": "Welcome",
       "numbers": 1
     }
    ];

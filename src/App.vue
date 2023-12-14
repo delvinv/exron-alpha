@@ -2,15 +2,18 @@
 import { onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import { useSettingsStore } from '@/stores/settings'
+import { useVolunteerStore } from '@/stores/volunteer'
+import { useRoleStore} from '@/stores/role'
 import RawData from '@/services/RawData.js'
 
 const settings = useSettingsStore();
+const volunteers = useVolunteerStore();
+const roles = useRoleStore();
 
 onMounted(() => {
-  // Need to import data here...
-  // volunteers.value = RawData.getVolunteers();
-  // orgName.value = RawData.getOrgName();
   settings.setOrgName(RawData.getOrgName());
+  volunteers.setVolunteers(RawData.getVolunteers());
+  roles.setRoles(RawData.getRoles());
 })
 </script>
 
@@ -19,7 +22,8 @@ onMounted(() => {
     <header>
       <div class="wrapper">
         <nav>
-          <RouterLink :to="{ name: 'home'}">Home</RouterLink> |
+          <RouterLink :to="{ name: 'volunteers'}">Volunteers</RouterLink> |
+          <RouterLink :to="{ name: 'roles'}">Roles</RouterLink> |
           <RouterLink :to="{ name: 'settings'}">Settings</RouterLink> |
           <RouterLink :to="{ name: 'roster'}">Roster</RouterLink> |
           <RouterLink :to="{ name: 'about'}">About</RouterLink>
