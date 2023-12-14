@@ -352,17 +352,17 @@ const exclusiveRoles = {
 NoOtherTasks = dont put me on another task that same occassion
 NoConsecutiveWeeks = dont put me on back to back weeks for this role (as its a heavy role) */
 const restrictionsOnRoles = {
-    1: {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
+    1: {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true}, 
     2 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    3 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
-    4 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
+    3 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
+    4 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
     5 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    6 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
-    7 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
-    8 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
+    6 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
+    7 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
+    8 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
     9 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    10 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
-    11 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
-    12 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true},
-    13 : {"isNoOtherTasks": true,"isNoConsecutiveWeeks": true}
+    10 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
+    11 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
+    12 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
+    13 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true}
 };
