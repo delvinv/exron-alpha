@@ -22,6 +22,8 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';   // optional
 import Row from 'primevue/row';                   // optional
+import InputText from 'primevue/inputtext';
+import InputNumber from 'primevue/inputnumber';
 
 // eslint-disable-next-line vue/no-reserved-component-names
 app.component('Button', Button);
@@ -29,5 +31,7 @@ app.component('DataTable',DataTable);
 app.component('Column',Column);
 app.component('ColumnGroup',ColumnGroup);
 app.component('Row',Row);
+app.component('InputText',InputText);
+app.component('InputNumber',InputNumber);
 
 app.mount('#app')
