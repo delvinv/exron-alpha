@@ -28,7 +28,7 @@ const confirmDeleteRole = (rol) => {
     deleteRoleDialog.value = true;
 };
 const deleteRole = () => {
-    roles = roles.filter(val => val.id !== role.value.id);
+    roleStore.roles = roles.filter(val => val.id !== role.value.id);
     deleteRoleDialog.value = false;
     role.value = {};
     toast.add({severity:'success', summary: 'Successful', detail: 'Role Deleted', life: 3000});
@@ -38,7 +38,7 @@ const confirmDeleteSelected = () => {
   deleteRolesDialog.value = true;
 };
 const deleteSelectedRoles = () => {
-    roles = roles.filter(val => !selectedRoles.value.includes(val));
+    roleStore.roles = roles.filter(val => !selectedRoles.value.includes(val));
     deleteRolesDialog.value = false;
     selectedRoles.value = null;
     toast.add({severity:'success', summary: 'Successful', detail: 'Roles Deleted', life: 3000});
@@ -83,7 +83,7 @@ const onCellEditComplete = (event) => {
           <Button label="Export" icon="pi pi-upload" severity="help" @click="exportCSV($event)"  />
       </template>
   </Toolbar>
-  <DataTable stripedRows :value="roles" tableStyle="min-width: 50rem" 
+  <DataTable stripedRows :value="roleStore.roles" tableStyle="min-width: 50rem" 
   class="p-datatable-sm" 
   editMode="cell" @cell-edit-complete="onCellEditComplete"
   v-model:selection="selectedRoles"
