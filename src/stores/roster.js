@@ -12,12 +12,12 @@ export const useRosterStore = defineStore({
       return state.rosters
     },
     getRosterById: (state) => {
-      return (rosterId) => state.rosters.find((roster) => roster.id === rosterId)
+      return (rosterId) => state.rosters.find((roster) => roster.rosterId === rosterId)
     }
   }, 
   actions: {
-    setRoles(rosters) {
+    setRosters(rosters) {
       this.rosters = rosters;
     }
   }
-})
+})    

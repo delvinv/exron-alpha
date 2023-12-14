@@ -5,18 +5,27 @@ import { useSettingsStore } from '@/stores/settings'
 import { useVolunteerStore } from '@/stores/volunteer'
 import { useRoleStore} from '@/stores/role'
 import { useCapabilityStore } from '@/stores/capability'
+import { useRosterStore} from '@/stores/roster'
+import { useRosterSelectedStore} from '@/stores/rosterSelected'
 import RawData from '@/services/RawData.js'
 
 const settings = useSettingsStore();
 const volunteers = useVolunteerStore();
 const roles = useRoleStore();
 const capabilities = useCapabilityStore();
+const rosterStore = useRosterStore();
+const rosterSelectedStore = useRosterSelectedStore();
 
 onMounted(() => {
   settings.setOrgName(RawData.getOrgName());
   volunteers.setVolunteers(RawData.getVolunteers());
   roles.setRoles(RawData.getRoles());
   capabilities.setCapabilities(RawData.getCapabilities());
+  rosterStore.setRosters(RawData.getRosters());
+  
+  // At launch, app loads the first item in the rosters table.
+  const defaultRosterSelection = rosterStore.rosters[2].rosterId;
+  rosterSelectedStore.setRosterSelected(defaultRosterSelection)
 })
 </script>
 

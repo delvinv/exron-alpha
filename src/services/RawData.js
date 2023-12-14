@@ -502,6 +502,153 @@ const capabilities = [
     }
 ];
 
+const rosters = 
+[
+  {
+    rosterId: 100,
+    date: "2023-12-10",
+    roster: [
+      {
+          roleId: 1,
+          occasions: {
+              instance1: 10,
+              instance2: 20,
+              instance3: 30,
+              instance4: 39
+          }
+      },
+      {
+          roleId: 2,
+          occasions: {
+              instance1: 5,
+              instance2: 6,
+              instance3: 7,
+              instance4: 8
+          }
+      },
+      {
+          roleId: 3,
+          occasions: {
+              instance1: 9,
+              instance2: 12,
+              instance3: 12,
+              instance4: 21
+          }
+      },
+      {
+          roleId: 4,
+          occasions: {
+              instance1: 11,
+              instance2: 12,
+              instance3: 23,
+              instance4: 27
+          }
+      },
+      {
+          roleId: 5,
+          occasions: {
+              instance1: 1,
+              instance2: 2,
+              instance3: 2,
+              instance4: 2
+          }
+      },
+      {
+          roleId: 6,
+          occasions: {
+              instance1: 1,
+              instance2: 2,
+              instance3: 2,
+              instance4: 2
+          }
+      },
+    ]
+  },
+  {
+    rosterId: 200,
+    date: "2023-11-10",
+    roster: [
+      {
+          roleId: 1,
+          occasions: {
+              instance1: 1,
+              instance2: 2,
+              instance3: 3,
+              instance4: 4
+          }
+      },
+      {
+          roleId: 2,
+          occasions: {
+              instance1: 5,
+              instance2: 6,
+              instance3: 7,
+              instance4: 8
+          }
+      },
+      {
+          roleId: 3,
+          occasions: {
+              instance1: 9,
+              instance2: 12,
+              instance3: 12,
+              instance4: 21
+          }
+      },
+      {
+          roleId: 4,
+          occasions: {
+              instance1: 11,
+              instance2: 12,
+              instance3: 23,
+              instance4: 27
+          }
+      },
+      {
+          roleId: 5,
+          occasions: {
+              instance1: 1,
+              instance2: 2,
+              instance3: 2,
+              instance4: 2
+          }
+      },
+      {
+          roleId: 6,
+          occasions: {
+              instance1: 1,
+              instance2: 2,
+              instance3: 2,
+              instance4: 2
+          }
+      },
+    ]
+  },
+  {
+    rosterId: 300,
+    date: "2023-11-10",
+    roster: [
+      {
+          roleId: 1,
+          occasions: {
+              instance1: 1,
+              instance2: 2,
+              instance3: 3,
+              instance4: 4
+          }
+      },
+      {
+          roleId: 2,
+          occasions: {
+              instance1: 5,
+              instance2: 6,
+              instance3: 7,
+              instance4: 8
+          }
+      }
+    ]}
+]
+
 export default {
     getVolunteers(){
         return volunteers;
@@ -520,6 +667,10 @@ export default {
     },
     getOrgName(){
         return orgName;
+    }
+    ,
+    getRosters(){
+        return rosters;
     }
     
 }

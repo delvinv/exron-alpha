@@ -32,6 +32,7 @@ import Toolbar from 'primevue/toolbar';
 import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
 import Dialog from 'primevue/dialog';
+import Chip from 'primevue/chip';
 import DialogService from 'primevue/dialogservice'
 
 app.use(ToastService);
@@ -51,5 +52,6 @@ app.component('Toolbar',Toolbar);
 app.component('Toast', Toast);
 app.component('Dialog', Dialog);
 app.component('Dropdown', Dropdown);
+app.component('Chip', Chip);
 
 app.mount('#app')

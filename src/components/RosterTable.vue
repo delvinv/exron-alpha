@@ -3,6 +3,9 @@
     import { OptimizedRoster } from '@/services/OptimizedRoster';
     import { useRoleStore} from '@/stores/role'
     import { useVolunteerStore } from '@/stores/volunteer'
+    import { useRosterStore} from '@/stores/roster'
+    import { useRosterSelectedStore} from '@/stores/rosterSelected'
+
     import { useToast } from 'primevue/usetoast';
     import { storeToRefs } from 'pinia';
 
@@ -11,31 +14,25 @@
     const volunteerStore = useVolunteerStore();
     const { getVolunteerById } = storeToRefs(volunteerStore);
 
+    const rosterStore = useRosterStore();
+    const rosterSelectedStore = useRosterSelectedStore();
+
     const occasions = [
     { field: 'instance1', header: 'instance1' },
     { field: 'instance2', header: 'instance2' },
     { field: 'instance3', header: 'instance3' },
     { field: 'instance4', header: 'instance4' }
 ];
-
-    onMounted(() => {
-        console.log("inside RosterTable onMounted");
-        OptimizedRoster.getRosterLarge().then((data) => {
-            rosterEntries.value = data;
-            console.log(data)
-        });
-    });
-
-    const rosterEntries = ref();
 </script>
 
 <!-- Need a programmatic way of displaying data from roster here -->
 <template>
     <div class="card">
-        <DataTable :value="rosterEntries" scrollable scrollHeight="400px" class="mt-4">
-            <Column field="roleId" header="roleId" style="min-width: 200px" frozen class="font-bold">
+        <DataTable :value="rosterStore.rosters.find(x => x.rosterId === rosterSelectedStore.rosterSelected).roster" 
+            size="small" scrollable scrollHeight="400px" class="mt-4">
+            <Column field="roleId" header="roleId" style="min-width: 100px" frozen class="font-bold">
                 <template #body="slotProps">
-                    <span>{{ getRoleById(slotProps.data.roleId).name }}<br/></span>
+                    <span class="roleName">{{ getRoleById(slotProps.data.roleId).name }}<br/></span>
                 </template>
             </Column>
             
@@ -52,3 +49,9 @@
         </DataTable>
     </div>
 </template>
+
+<style>
+.roleName{
+    font-weight: bold;
+}
+</style>

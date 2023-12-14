@@ -24,7 +24,7 @@ const onCellEditComplete = (event) => {
 
 <template>
   <DataTable stripedRows :value="volunteers.volunteers" tableStyle="min-width: 50rem" 
-  class="p-datatable-sm" 
+  class="p-datatable-sm" size="small"
   editMode="cell" @cell-edit-complete="onCellEditComplete"
   paginator :rows="10" :rowsPerPageOptions="[10, 20, 50]"
   :pt="{

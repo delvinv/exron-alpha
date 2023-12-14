@@ -88,7 +88,7 @@ const onCellEditComplete = (event) => {
       </template>
   </Toolbar>
   <DataTable stripedRows :value="roleStore.roles" tableStyle="min-width: 50rem" 
-  class="p-datatable-sm" 
+  class="p-datatable-sm" size="small"
   editMode="cell" @cell-edit-complete="onCellEditComplete"
   v-model:selection="selectedRoles"
   :pt="{
