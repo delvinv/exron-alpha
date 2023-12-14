@@ -28,6 +28,7 @@ const settings = useSettingsStore();
     <!-- weeklySchedule: true, -->
     
   </div>
+  <Toast />
 </template>
 
 <style scoped>

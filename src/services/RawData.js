@@ -15,235 +15,354 @@ const volunteers =
         "id": 1,
         "forename": "Alan",
         "surname": "B",
-        "unavailable": ["2024-01-07"]
+        "unavailable": ["2024-01-07"],
+        "capabilities": [
+            {roleId: 1, preferences: [2,4]},
+            {roleId: 2, preferences: [1,3]},
+            {roleId: 3, preferences: [2,4]}
+        ]
     },
     {
         "id": 2,
         "forename": "Bev",
         "surname": "B",
-        "unavailable": ["2024-01-07"]
+        "unavailable": ["2024-01-07"],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 3,
         "forename": "Paul",
         "surname": "B",
-        "unavailable": ["2023-12-31"]
+        "unavailable": ["2023-12-31"],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 4,
         "forename": "Andy",
         "surname": "C",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 5,
         "forename": "Mitch",
         "surname": "C",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 6,
         "forename": "Nora",
         "surname": "C",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 7,
         "forename": "Barbara",
         "surname": "E",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 8,
         "forename": "Jack",
         "surname": "E",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 9,
         "forename": "Clive",
         "surname": "G",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 10,
         "forename": "Jenny",
         "surname": "G",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 11,
         "forename": "Arthur",
         "surname": "H",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 12,
         "forename": "Catherine",
         "surname": "H",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 13,
         "forename": "Gabriel",
         "surname": "H",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 14,
         "forename": "Nathanael",
         "surname": "H",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 15,
         "forename": "Dorothy",
         "surname": "H",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 16,
         "forename": "Boutros",
         "surname": "J",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 17,
         "forename": "Glenda",
         "surname": "J",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 18,
         "forename": "Michelle",
         "surname": "J",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 19,
         "forename": "Don",
         "surname": "K",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 20,
         "forename": "Val",
         "surname": "K",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 21,
         "forename": "Abin",
         "surname": "M",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 22,
         "forename": "Tesia",
         "surname": "M",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 23,
         "forename": "Tina",
         "surname": "M",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 24,
         "forename": "Vinod",
         "surname": "M",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 25,
         "forename": "Gora",
         "surname": "O",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 26,
         "forename": "Sunday",
         "surname": "O",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 27,
         "forename": "Hoghei",
         "surname": "R",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 28,
         "forename": "Mark",
         "surname": "R",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 29,
         "forename": "Meg",
         "surname": "R",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 30,
         "forename": "Annette",
         "surname": "R",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 31,
         "forename": "Les",
         "surname": "R",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 32,
         "forename": "Morag",
         "surname": "T",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 33,
         "forename": "Delvin",
         "surname": "V",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 34,
         "forename": "Emily",
         "surname": "V",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 35,
         "forename": "Belinda",
         "surname": "W",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 36,
         "forename": "Carol",
         "surname": "Y",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 37,
         "forename": "Terry",
         "surname": "Y",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 38,
         "forename": "Albert",
         "surname": " ",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     },
     {
         "id": 39,
         "forename": "Merv",
         "surname": " ",
-        "unavailable": []
+        "unavailable": [],
+        "capabilities": [
+            {roleId: 4, preferences: [2,4]}
+        ]
     }
 ];
 
@@ -364,18 +483,24 @@ const roles = [
 /* Matching roles against volunteers 
 For each role(id): who (volunteer id) can do it, and which occasions [] they have a preference
 */
-const capabilities = {
-    "1": [
-        {"id": 1, "preference": [2,4]}, 
-        {"id": 4, "preference": [1]},
-        {"id": 6, "preference": [2,4]}
-    ],
-    "2": [
-        {"id": 1, "preference": [2,4]}, 
-        {"id": 4, "preference": [1,3]},
-        {"id": 6, "preference": [2,4]}
-    ],
-};
+const capabilities = [
+    {
+        roleId: 1,
+        trainedVols: [
+            {volunteerId: 9, preferences: [2,4]},
+            {volunteerId: 8, preferences: [1]},
+            {volunteerId: 7, preferences: [2,4]}
+        ]
+    },
+    {
+        roleId: 2,
+        trainedVols: [
+            {volunteerId: 1, preferences: [2,4]},
+            {volunteerId: 4, preferences: [1,3]},
+            {volunteerId: 6, preferences: [2,4]}
+        ]
+    }
+];
 
 export default {
     getVolunteers(){

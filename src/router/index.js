@@ -3,6 +3,7 @@ import VolunteersView from '../views/VolunteersView.vue'
 import RolesView from '../views/RolesView.vue'
 import SettingsView from '../views/SettingsView.vue'
 import RosterView from '../views/RosterView.vue'
+import CapabilitiesView from '../views/CapabilitiesView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,6 +17,11 @@ const router = createRouter({
       path: '/roles',
       name: 'roles',
       component: RolesView
+    },
+    {
+      path: '/capabilities',
+      name: 'capabilities',
+      component: CapabilitiesView
     },
     {
       path: '/settings',

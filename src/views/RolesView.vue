@@ -60,9 +60,13 @@ const onCellEditComplete = (event) => {
         case 'isNoConsecutiveWeeks':
             data[field] = newValue;
             break;
+        case 'roleClashes':
+            data[field] = newValue;
+            break;
         default:
-            if (newValue.trim().length > 0) data[field] = newValue;
-            else event.preventDefault();
+            data[field] = newValue;
+            // if (newValue.trim().length > 0) data[field] = newValue;
+            // else event.preventDefault();
             break;
     }
 };
@@ -127,12 +131,21 @@ const onCellEditComplete = (event) => {
         <Checkbox v-model="data[field]" :binary="true" />
       </template>
     </Column>
+    <Column field="roleClashes" header="Role Clashes" sortable>
+      <template #body="{ data, field }">
+        {{data[field].toString() }}
+      </template>
+      <template #editor="{ data, field }">
+        <InputText v-model="data[field]" autofocus />
+      </template>
+    </Column>
     <Column :exportable="false" style="min-width:8rem">
       <template #body="slotProps">
           <Button icon="pi pi-pencil" outlined rounded class="mr-2" @click="editRole(slotProps.data)" />
           <Button icon="pi pi-trash" outlined rounded severity="danger" @click="confirmDeleteRole(slotProps.data)" />
       </template>
     </Column>
+    <template #footer> <div class="table-footer">In total there are {{ roleStore.roles ? roleStore.roles.length : 0 }} roles. </div></template>
 </DataTable>
 
 <Dialog v-model:visible="deleteRoleDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
@@ -156,8 +169,7 @@ const onCellEditComplete = (event) => {
         <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedRoles" />
     </template>
 </Dialog>
-
-<CapabilitiesTable></CapabilitiesTable>
+<Toast />
 </template>
 
 <style scoped>
@@ -167,5 +179,9 @@ const onCellEditComplete = (event) => {
   align-items: center;
   flex-wrap: wrap;
   margin: 0.5rem;
+}
+
+.table-footer {
+  font-weight: bold;
 }
 </style>

@@ -59,7 +59,9 @@ const onCellEditComplete = (event) => {
         <InputText v-model="data[field]" autofocus />
       </template>
     </Column>
+    <template #footer> <div class="table-footer">In total there are {{ volunteers.volunteers ? volunteers.volunteers.length : 0 }} volunteers. </div></template>
 </DataTable>
+<Toast />
 </template>
 
 <style scoped>
@@ -69,5 +71,9 @@ const onCellEditComplete = (event) => {
   align-items: center;
   flex-wrap: wrap;
   margin: 0.5rem;
+}
+
+.table-footer {
+  font-weight: bold;
 }
 </style>

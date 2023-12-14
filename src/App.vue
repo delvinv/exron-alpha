@@ -27,6 +27,7 @@ onMounted(() => {
         <nav>
           <RouterLink :to="{ name: 'volunteers'}">Volunteers</RouterLink> |
           <RouterLink :to="{ name: 'roles'}">Roles</RouterLink> |
+          <RouterLink :to="{ name: 'capabilities'}">Capabilities</RouterLink> |
           <RouterLink :to="{ name: 'settings'}">Settings</RouterLink> |
           <RouterLink :to="{ name: 'roster'}">Roster</RouterLink> |
           <RouterLink :to="{ name: 'about'}">About</RouterLink>
