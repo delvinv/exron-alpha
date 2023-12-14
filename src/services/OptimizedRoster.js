@@ -1,62 +1,78 @@
+// import { useRosterStore} from '@/stores/roster'
+// const rosterStore = useRosterStore();
+
+// const lastId = rosterStore.rosters[rosterStore.rosters.length-1].rosterId;
+const lastId = 2000;
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 // 4x weeks worth of rosters!
 export const OptimizedRoster = {
     getData() {
-        return [
-            {
-                roleId: 1,
-                occasions: {
-                    instance1: 1,
-                    instance2: 2,
-                    instance3: 3,
-                    instance4: 4
-                }
-            },
-            {
-                roleId: 2,
-                occasions: {
-                    instance1: 5,
-                    instance2: 6,
-                    instance3: 7,
-                    instance4: 8
-                }
-            },
-            {
-                roleId: 3,
-                occasions: {
-                    instance1: 9,
-                    instance2: 12,
-                    instance3: 12,
-                    instance4: 21
-                }
-            },
-            {
-                roleId: 4,
-                occasions: {
-                    instance1: 11,
-                    instance2: 12,
-                    instance3: 23,
-                    instance4: 27
-                }
-            },
-            {
-                roleId: 5,
-                occasions: {
-                    instance1: 1,
-                    instance2: 2,
-                    instance3: 2,
-                    instance4: 2
-                }
-            },
-            {
-                roleId: 6,
-                occasions: {
-                    instance1: 1,
-                    instance2: 2,
-                    instance3: 2,
-                    instance4: 2
-                }
-            },
-        ]
+        return {
+            rosterId: lastId+1,
+            date: "2021-12-10",
+            roster: [
+              {
+                  roleId: 1,
+                  occasions: {
+                    instance1: getRandomInt(1,38),
+                    instance2: getRandomInt(1,38),
+                    instance3: getRandomInt(1,38),
+                    instance4: getRandomInt(1,38)
+                  }
+              },
+              {
+                  roleId: 2,
+                  occasions: {
+                    instance1: getRandomInt(1,38),
+                    instance2: getRandomInt(1,38),
+                    instance3: getRandomInt(1,38),
+                    instance4: getRandomInt(1,38)
+                  }
+              },
+              {
+                  roleId: 3,
+                  occasions: {
+                    instance1: getRandomInt(1,38),
+                    instance2: getRandomInt(1,38),
+                    instance3: getRandomInt(1,38),
+                    instance4: getRandomInt(1,38)
+                  }
+              },
+              {
+                  roleId: 4,
+                  occasions: {
+                    instance1: getRandomInt(1,38),
+                    instance2: getRandomInt(1,38),
+                    instance3: getRandomInt(1,38),
+                    instance4: getRandomInt(1,38)
+                  }
+              },
+              {
+                  roleId: 5,
+                  occasions: {
+                    instance1: getRandomInt(1,38),
+                    instance2: getRandomInt(1,38),
+                    instance3: getRandomInt(1,38),
+                    instance4: getRandomInt(1,38)
+                  }
+              },
+              {
+                  roleId: 6,
+                  occasions: {
+                    instance1: getRandomInt(1,38),
+                    instance2: getRandomInt(1,38),
+                    instance3: getRandomInt(1,38),
+                    instance4: getRandomInt(1,38)
+                  }
+              },
+            ]
+          }
     },
     getRosterSmall() {
         return Promise.resolve(this.getData().slice(0, 4));

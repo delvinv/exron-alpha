@@ -18,6 +18,9 @@ export const useRosterStore = defineStore({
   actions: {
     setRosters(rosters) {
       this.rosters = rosters;
+    },
+    addRoster(roster){
+      this.rosters.push(roster);
     }
   }
 })    

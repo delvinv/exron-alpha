@@ -1,13 +1,18 @@
 <script setup>
-  import RosterSelector from '@/components/RosterSelector.vue';
-import RosterTable from '@/components/RosterTable.vue';
   import { ref } from 'vue';
+  import RosterSelector from '@/components/RosterSelector.vue';
+  import RosterTable from '@/components/RosterTable.vue';
+  import { useRosterStore } from '@/stores/roster';
+  import { OptimizedRoster } from '@/services/OptimizedRoster';
+  
   const loading = ref(false);
+  const rosterStore = useRosterStore();
 
   const load = () => {
       loading.value = true;
       setTimeout(() => {
           loading.value = false;
+          rosterStore.addRoster(OptimizedRoster.getData());
       }, 2000);
   };
 </script>
