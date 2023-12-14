@@ -51,7 +51,7 @@ const onCellEditComplete = (event) => {
         <InputText v-model="data[field]" autofocus />
       </template>
     </Column>
-    <Column field="unavailable" header="Availability" sortable>
+    <Column field="unavailable" header="Not Available" sortable>
       <template #body="{ data, field }">
         {{ data[field] }}
       </template>

@@ -2,18 +2,47 @@
 // import RolesCard from '@/components/RolesCard.vue'
 import { useSettingsStore } from '@/stores/settings'
 import { useRoleStore} from '@/stores/role'
-// import { storeToRefs } from 'pinia'
+import { useToast } from 'primevue/usetoast';
+import { ref } from 'vue';
 
 const settings = useSettingsStore();
-const roles = useRoleStore();
+const roleStore = useRoleStore();
+let roles = roleStore.roles;
 
-// export default {
-//   methods: {
-//     onCellEditComplete(event) {
-//       console.log("writing complete");
-//     }
-//   }
-// }
+const roleDialog = ref(false);
+const deleteRoleDialog = ref(false);
+const deleteRolesDialog = ref(false);
+const role = ref({});
+const selectedRoles = ref();
+const submitted = ref(false);
+
+const toast = useToast();
+
+const hideDialog = () => {
+    roleDialog.value = false;
+    submitted.value = false;
+};
+
+const confirmDeleteRole = (rol) => {
+    role.value = rol;
+    deleteRoleDialog.value = true;
+};
+const deleteRole = () => {
+    roles = roles.filter(val => val.id !== role.value.id);
+    deleteRoleDialog.value = false;
+    role.value = {};
+    toast.add({severity:'success', summary: 'Successful', detail: 'Role Deleted', life: 3000});
+};
+
+const confirmDeleteSelected = () => {
+  deleteRolesDialog.value = true;
+};
+const deleteSelectedRoles = () => {
+    roles = roles.filter(val => !selectedRoles.value.includes(val));
+    deleteRolesDialog.value = false;
+    selectedRoles.value = null;
+    toast.add({severity:'success', summary: 'Successful', detail: 'Roles Deleted', life: 3000});
+};
 
 const onCellEditComplete = (event) => {
     let { data, newValue, field } = event;
@@ -25,7 +54,12 @@ const onCellEditComplete = (event) => {
         case 'numbers':
             data[field] = newValue;
             break;
-
+        case 'isNoOtherTasks':
+            data[field] = newValue;
+            break;
+        case 'isNoConsecutiveWeeks':
+            data[field] = newValue;
+            break;
         default:
             if (newValue.trim().length > 0) data[field] = newValue;
             else event.preventDefault();
@@ -38,9 +72,21 @@ const onCellEditComplete = (event) => {
 <template>
   <h1>Roles available at {{ settings.orgName }}</h1>
   <!-- editMode="cell" @cell-edit-complete="onCellEditComplete" -->
-  <DataTable stripedRows :value="roles.roles" tableStyle="min-width: 50rem" 
+  <Toolbar class="mb-4">
+      <template #start>
+          <!-- <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" /> -->
+          <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedRoles || !selectedRoles.length" />
+      </template>
+
+      <template #end>
+          <!-- <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" /> -->
+          <Button label="Export" icon="pi pi-upload" severity="help" @click="exportCSV($event)"  />
+      </template>
+  </Toolbar>
+  <DataTable stripedRows :value="roles" tableStyle="min-width: 50rem" 
   class="p-datatable-sm" 
   editMode="cell" @cell-edit-complete="onCellEditComplete"
+  v-model:selection="selectedRoles"
   :pt="{
                 table: { style: 'min-width: 50rem' },
                 column: {
@@ -50,6 +96,7 @@ const onCellEditComplete = (event) => {
                 }
             }"
   >
+  <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
     <Column field="id" header="id" sortable></Column>
     <Column field="name" header="Name" sortable>
       <template #body="{ data, field }">
@@ -65,11 +112,50 @@ const onCellEditComplete = (event) => {
       </template>
     </Column>
     <Column field="isNoOtherTasks" header="Other Tasks?" sortable>
+      <template #body="{ data, field }">
+        <Checkbox v-model="data[field]" :binary="true" />
+      </template>
       <template #editor="{ data, field }">
         <Checkbox v-model="data[field]" :binary="true" />
       </template>
     </Column>
+    <Column field="isNoConsecutiveWeeks" header="Consecutive?" sortable>
+      <template #body="{ data, field }">
+        <Checkbox v-model="data[field]" :binary="true" />
+      </template>
+      <template #editor="{ data, field }">
+        <Checkbox v-model="data[field]" :binary="true" />
+      </template>
+    </Column>
+    <Column :exportable="false" style="min-width:8rem">
+      <template #body="slotProps">
+          <Button icon="pi pi-pencil" outlined rounded class="mr-2" @click="editRole(slotProps.data)" />
+          <Button icon="pi pi-trash" outlined rounded severity="danger" @click="confirmDeleteRole(slotProps.data)" />
+      </template>
+    </Column>
 </DataTable>
+
+<Dialog v-model:visible="deleteRoleDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
+    <div class="confirmation-content">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+        <span v-if="role">Are you sure you want to delete <b>{{role.name}}</b>?</span>
+    </div>
+    <template #footer>
+        <Button label="No" icon="pi pi-times" text @click="deleteRoleDialog = false"/>
+        <Button label="Yes" icon="pi pi-check" text @click="deleteRole" />
+    </template>
+</Dialog>
+
+<Dialog v-model:visible="deleteRolesDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
+    <div class="confirmation-content">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+        <span v-if="role">Are you sure you want to delete the selected roles?</span>
+    </div>
+    <template #footer>
+        <Button label="No" icon="pi pi-times" text @click="deleteRolesDialog = false"/>
+        <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedRoles" />
+    </template>
+</Dialog>
 </template>
 
 <style scoped>
