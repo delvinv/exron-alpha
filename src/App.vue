@@ -4,16 +4,19 @@ import { RouterLink, RouterView } from 'vue-router'
 import { useSettingsStore } from '@/stores/settings'
 import { useVolunteerStore } from '@/stores/volunteer'
 import { useRoleStore} from '@/stores/role'
+import { useCapabilityStore } from '@/stores/capability'
 import RawData from '@/services/RawData.js'
 
 const settings = useSettingsStore();
 const volunteers = useVolunteerStore();
 const roles = useRoleStore();
+const capabilities = useCapabilityStore();
 
 onMounted(() => {
   settings.setOrgName(RawData.getOrgName());
   volunteers.setVolunteers(RawData.getVolunteers());
   roles.setRoles(RawData.getRoles());
+  capabilities.setCapabilities(RawData.getCapabilities());
 })
 </script>
 

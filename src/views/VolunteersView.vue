@@ -1,5 +1,5 @@
 <script setup>
-import VolunteerCard from '@/components/VolunteerCard.vue'
+// import VolunteerCard from '@/components/VolunteerCard.vue'
 import { useVolunteerStore } from '@/stores/volunteer'
 import { useSettingsStore } from '@/stores/settings'
 

@@ -250,98 +250,114 @@ const volunteers =
 // List of Roles in the organisation
 /* What restrictions apply to certain roles
 NoOtherTasks = dont put me on another task that same occassion
-NoConsecutiveWeeks = dont put me on back to back weeks for this role (as its a heavy role) */
+NoConsecutiveWeeks = dont put me on back to back weeks for this role (as its a heavy role) 
+roleClashes = Setting role constraints - what roles cannot be done simultaneously with another role?
+// roleId: [roleId, roleId]
+*/
 const roles = [
     {
       "id": 1,
       "name": "Audio",
       "numbers": 1,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": [5,6]
     },
     {
       "id": 2,
       "name": "Visual",
       "numbers": 1,
       "isNoOtherTasks": true,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 3,
       "name": "Musicians",
       "numbers": 2,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 4,
       "name": "Reading",
       "numbers": 1,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 5,
       "name": "Speaker",
       "numbers": 1,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": [1]
     },
     {
       "id": 6,
-      "name": "Communion Helpers",
+      "name": "Comm Helpers",
       "numbers": 4,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": [1]
     },
     {
       "id": 7,
-      "name": "Communion Message",
+      "name": "Comm Message",
       "numbers": 1,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 8,
-      "name": "Communion Setup",
+      "name": "Comm Setup",
       "numbers": 2,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 9,
-      "name": "Communion Washup",
+      "name": "Comm Washup",
       "numbers": 1,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 10,
       "name": "Counters",
       "numbers": 2,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 11,
       "name": "Kids Min",
       "numbers": 1,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 12,
       "name": "Morning Tea",
       "numbers": 4,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": true
+      "isNoConsecutiveWeeks": true,
+      "roleClashes": []
     },
     {
       "id": 13,
       "name": "Welcome",
       "numbers": 1,
       "isNoOtherTasks": false,
-      "isNoConsecutiveWeeks": false
+      "isNoConsecutiveWeeks": false,
+      "roleClashes": []
     }
    ];
 
@@ -349,35 +365,17 @@ const roles = [
 For each role(id): who (volunteer id) can do it, and which occasions [] they have a preference
 */
 const capabilities = {
-    1: [
+    "1": [
         {"id": 1, "preference": [2,4]}, 
         {"id": 4, "preference": [1]},
         {"id": 6, "preference": [2,4]}
     ],
-    2: [
+    "2": [
         {"id": 1, "preference": [2,4]}, 
         {"id": 4, "preference": [1,3]},
         {"id": 6, "preference": [2,4]}
     ],
 };
-
-// Setting role constraints - what roles cannot be done simultaneously with another role?
-// roleId: [roleId, roleId]
-const exclusiveRoles = {
-    1: [5,6],
-    2: [],
-    3: [],
-    4: [],
-    5: [1],
-    6: [1],
-    7: [],
-    8: [],
-    9: [],
-    10: [],
-    11: [],
-    12: [],
-    13: []
-}
 
 export default {
     getVolunteers(){
@@ -388,12 +386,6 @@ export default {
     },
     getCapabilities(){
         return capabilities;
-    },
-    getExclusiveRoles(){
-        return exclusiveRoles;
-    },
-    getRestrictionsOnRoles(){
-        return restrictionsOnRoles;
     },
     getNumOccasions(){
         return occasions;

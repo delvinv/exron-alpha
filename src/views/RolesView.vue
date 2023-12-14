@@ -1,5 +1,5 @@
 <script setup>
-// import RolesCard from '@/components/RolesCard.vue'
+import CapabilitiesTable from '@/components/CababilitiesTable.vue'
 import { useSettingsStore } from '@/stores/settings'
 import { useRoleStore} from '@/stores/role'
 import { useToast } from 'primevue/usetoast';
@@ -156,6 +156,8 @@ const onCellEditComplete = (event) => {
         <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedRoles" />
     </template>
 </Dialog>
+
+<CapabilitiesTable></CapabilitiesTable>
 </template>
 
 <style scoped>
