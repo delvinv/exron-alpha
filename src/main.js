@@ -26,6 +26,7 @@ import ColumnGroup from 'primevue/columngroup';   // optional
 import Row from 'primevue/row';                   // optional
 import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
+import Dropdown from 'primevue/Dropdown';
 import Checkbox from 'primevue/checkbox';
 import Toolbar from 'primevue/toolbar';
 import Toast from 'primevue/toast';
@@ -49,5 +50,6 @@ app.component('Checkbox',Checkbox);
 app.component('Toolbar',Toolbar);
 app.component('Toast', Toast);
 app.component('Dialog', Dialog);
+app.component('Dropdown', Dropdown);
 
 app.mount('#app')

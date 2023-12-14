@@ -2,6 +2,7 @@
 // import VolunteerCard from '@/components/VolunteerCard.vue'
 import { useVolunteerStore } from '@/stores/volunteer'
 import { useSettingsStore } from '@/stores/settings'
+import AvailabilityDialog from '@/components/AvailabilityDialog.vue';
 
 const volunteers = useVolunteerStore();
 const settings = useSettingsStore();
@@ -25,6 +26,7 @@ const onCellEditComplete = (event) => {
   <DataTable stripedRows :value="volunteers.volunteers" tableStyle="min-width: 50rem" 
   class="p-datatable-sm" 
   editMode="cell" @cell-edit-complete="onCellEditComplete"
+  paginator :rows="10" :rowsPerPageOptions="[10, 20, 50]"
   :pt="{
                 table: { style: 'min-width: 50rem' },
                 column: {
@@ -61,6 +63,7 @@ const onCellEditComplete = (event) => {
     </Column>
     <template #footer> <div class="table-footer">In total there are {{ volunteers.volunteers ? volunteers.volunteers.length : 0 }} volunteers. </div></template>
 </DataTable>
+<AvailabilityDialog></AvailabilityDialog>
 <Toast />
 </template>
 
