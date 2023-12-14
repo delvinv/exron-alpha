@@ -10,6 +10,9 @@ export const useRoleStore = defineStore({
   getters: {
     getRoles(state) {
       return state.roles
+    },
+    getRoleById: (state) => {
+      return (roleId) => state.roles.find((role) => role.id === roleId)
     }
   }, 
   actions: {

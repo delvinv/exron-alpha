@@ -10,6 +10,9 @@ export const useVolunteerStore = defineStore({
   getters: {
     getVolunteers(state) {
       return state.volunteers
+    },
+    getVolunteerById: (state) => {
+      return (volunteerId) => state.volunteers.find((volunteer) => volunteer.id === volunteerId)
     }
   }, 
   actions: {

@@ -4,10 +4,13 @@ import { useCapabilityStore } from '@/stores/capability'
 import { useRoleStore} from '@/stores/role'
 import { useVolunteerStore } from '@/stores/volunteer'
 import { useToast } from 'primevue/usetoast';
+import { storeToRefs } from 'pinia';
 
 const capabilitiesStore = useCapabilityStore();
 const roleStore = useRoleStore();
+const { getRoleById } = storeToRefs(roleStore);
 const volunteerStore = useVolunteerStore();
+const { getVolunteerById } = storeToRefs(volunteerStore);
 
 const expandedRowGroups = ref();
 const toast = useToast();
@@ -45,7 +48,7 @@ const capabilities = {
                 expandableRowGroups rowGroupMode="subheader" groupRowsBy="roleId" @rowgroup-expand="onRowGroupExpand" @rowgroup-collapse="onRowGroupCollapse"
                 sortMode="single" sortField="roleId" :sortOrder="1">
     <template #groupheader="slotProps">
-        <span class="vertical-align-middle ml-2 font-bold line-height-3">Role ID: {{ slotProps.data.roleId }}</span>
+        <span class="vertical-align-middle ml-2 font-bold line-height-3">{{ getRoleById(slotProps.data.roleId).name }}</span>
     </template>
     <!-- <Column field="trainedVols" header="RoleId" style="width: 20%">
         <template #body="{ data, field }">
@@ -54,7 +57,7 @@ const capabilities = {
     </Column> -->
     <Column field="trainedVols" header="Volunteer Id" style="width: 20%">
         <template #body="slotProps">
-            <span v-for="vol in slotProps.data.trainedVols">{{vol.volunteerId}}<br/></span>
+            <span v-for="vol in slotProps.data.trainedVols">{{ getVolunteerById(vol.volunteerId).forename }}<br/></span>
         </template>
     </Column>
     <Column field="trainedVols" header="Preferences" style="width: 20%">
