@@ -24,6 +24,7 @@ import ColumnGroup from 'primevue/columngroup';   // optional
 import Row from 'primevue/row';                   // optional
 import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
+import Checkbox from 'primevue/checkbox';
 
 // eslint-disable-next-line vue/no-reserved-component-names
 app.component('Button', Button);
@@ -33,5 +34,6 @@ app.component('ColumnGroup',ColumnGroup);
 app.component('Row',Row);
 app.component('InputText',InputText);
 app.component('InputNumber',InputNumber);
+app.component('Checkbox',Checkbox);
 
 app.mount('#app')

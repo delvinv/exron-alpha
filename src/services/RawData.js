@@ -248,71 +248,100 @@ const volunteers =
 ];
 
 // List of Roles in the organisation
+/* What restrictions apply to certain roles
+NoOtherTasks = dont put me on another task that same occassion
+NoConsecutiveWeeks = dont put me on back to back weeks for this role (as its a heavy role) */
 const roles = [
     {
       "id": 1,
       "name": "Audio",
-      "numbers": 1
+      "numbers": 1,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 2,
       "name": "Visual",
-      "numbers": 1
+      "numbers": 1,
+      "isNoOtherTasks": true,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 3,
       "name": "Musicians",
-      "numbers": 2
+      "numbers": 2,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 4,
       "name": "Reading",
-      "numbers": 1
+      "numbers": 1,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 5,
       "name": "Speaker",
-      "numbers": 1
+      "numbers": 1,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 6,
       "name": "Communion Helpers",
-      "numbers": 4
+      "numbers": 4,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 7,
       "name": "Communion Message",
-      "numbers": 1
+      "numbers": 1,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 8,
       "name": "Communion Setup",
-      "numbers": 2
+      "numbers": 2,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 9,
       "name": "Communion Washup",
-      "numbers": 1
+      "numbers": 1,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 10,
       "name": "Counters",
-      "numbers": 2
+      "numbers": 2,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 11,
       "name": "Kids Min",
-      "numbers": 1
+      "numbers": 1,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 12,
       "name": "Morning Tea",
-      "numbers": 4
+      "numbers": 4,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": true
     },
     {
       "id": 13,
       "name": "Welcome",
-      "numbers": 1
+      "numbers": 1,
+      "isNoOtherTasks": false,
+      "isNoConsecutiveWeeks": false
     }
    ];
 
@@ -349,25 +378,6 @@ const exclusiveRoles = {
     12: [],
     13: []
 }
-
-/* What restrictions apply to certain roles
-NoOtherTasks = dont put me on another task that same occassion
-NoConsecutiveWeeks = dont put me on back to back weeks for this role (as its a heavy role) */
-const restrictionsOnRoles = {
-    1: {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true}, 
-    2 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    3 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    4 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    5 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    6 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    7 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    8 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    9 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    10 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    11 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    12 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
-    13 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true}
-};
 
 export default {
     getVolunteers(){

@@ -1,5 +1,5 @@
 <script setup>
-import RolesCard from '@/components/RolesCard.vue'
+// import RolesCard from '@/components/RolesCard.vue'
 import { useSettingsStore } from '@/stores/settings'
 import { useRoleStore} from '@/stores/role'
 // import { storeToRefs } from 'pinia'
@@ -38,7 +38,9 @@ const onCellEditComplete = (event) => {
 <template>
   <h1>Roles available at {{ settings.orgName }}</h1>
   <!-- editMode="cell" @cell-edit-complete="onCellEditComplete" -->
-  <DataTable stripedRows :value="roles.roles" tableStyle="min-width: 50rem" :class="`p-datatable-small`" editMode="cell" @cell-edit-complete="onCellEditComplete"
+  <DataTable stripedRows :value="roles.roles" tableStyle="min-width: 50rem" 
+  class="p-datatable-sm" 
+  editMode="cell" @cell-edit-complete="onCellEditComplete"
   :pt="{
                 table: { style: 'min-width: 50rem' },
                 column: {
@@ -58,11 +60,13 @@ const onCellEditComplete = (event) => {
       </template>
     </Column>
     <Column field="numbers" header="Numbers" sortable>
-      <template #body="{ data, field }">
-        {{ data[field] }}
-      </template>
       <template #editor="{ data, field }">
         <InputNumber v-model="data[field]" inputId="minmax" :min="0" :max="10" autofocus />
+      </template>
+    </Column>
+    <Column field="isNoOtherTasks" header="Other Tasks?" sortable>
+      <template #editor="{ data, field }">
+        <Checkbox v-model="data[field]" :binary="true" />
       </template>
     </Column>
 </DataTable>
