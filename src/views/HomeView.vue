@@ -1,26 +1,29 @@
+<script setup>
+import { ref, onMounted } from 'vue'
+import VolunteerCard from '@/components/VolunteerCard.vue'
+import RawData from '@/services/RawData.js'
+
+let volunteers = ref(null)
+
+onMounted(() => {
+  // Need to import data here...
+  volunteers.value = RawData.getVolunteers();
+})
+</script>
+
 <template>
-  <div class="home">
-    <h1>This is an home page</h1>
+  <h1>Our committed volunteers</h1>
+  <div class="volunteers">
+    <VolunteerCard v-for="volunteer in volunteers" :key="volunteer.id" :volunteer="volunteer" />
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .home {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<style scoped>
+.volunteers {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.5rem;
 }
 </style>
-
-<script>
-export default {
-  props: {
-    "volunteers": {
-      
-    }
-  }
-}
-
-</script>

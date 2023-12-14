@@ -1,7 +1,7 @@
 // Number of occasions for which to generate a roster
-const occassions = 4;
+const occasions = 4;
 // Suited for organisations that schedule for weekly occurrences (i.e. each occasion = one week)
-const isWeeklySchedule = true;
+const weeklySchedule = true;
 
 
 
@@ -366,3 +366,28 @@ const restrictionsOnRoles = {
     12 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true},
     13 : {"isNoOtherTasks": false,"isNoConsecutiveWeeks": true}
 };
+
+export default {
+    getVolunteers(){
+        return volunteers;
+    },
+    getRoles(){
+        return roles;
+    },
+    getCapabilities(){
+        return capabilities;
+    },
+    getExclusiveRoles(){
+        return exclusiveRoles;
+    },
+    getRestrictionsOnRoles(){
+        return restrictionsOnRoles;
+    },
+    getNumOccasions(){
+        return occasions;
+    },
+    isWeeklySchedule(){
+        return weeklySchedule;
+    }
+    
+}

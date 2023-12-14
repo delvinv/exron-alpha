@@ -11,15 +11,15 @@ defineProps({
 <template>
     <div class="volunteer-card">
       <!-- Display volunteer data here -->
-      <h2>{{ volunteer.forename }} >{{ volunteer.surname }}</h2>
-      <span>Unavailable on {{ volunteer.unavailable }}</span>
+      <h2>{{ volunteer.forename }} {{ volunteer.surname }}</h2>
+      <span v-if="volunteer.unavailable.length">Unavailable on {{ volunteer.unavailable.join(', ') }}</span>
     </div>
 </template>
 
 <style scoped>
 .volunteer-card {
-  padding: 20px;
-  width: 250px;
+  padding: 5px;
+  width: 200px;
   cursor: pointer;
   border: 1px solid #39495c;
   margin-bottom: 18px;
