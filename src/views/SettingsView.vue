@@ -24,8 +24,13 @@ const settings = useSettingsStore();
       <InputText id="occasions" v-model="settings.occasions" aria-describedby="occasions-help" />
             <small id="occasions-help">How many occasions to roster for?</small>
     </div>
-    <!-- <h3>Occasions: <input v-model="settings.occasions" /></h3> -->
-    <!-- weeklySchedule: true, -->
+
+    <!-- <div class="card flex justify-content-center">
+        <span class="p-buttonset">
+            <Button label="Load from file" icon="pi pi-trash" />
+            <Button label="Reset to default" icon="pi pi-times" />
+        </span>
+    </div> -->
     
   </div>
   <Toast />

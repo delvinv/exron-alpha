@@ -21,23 +21,6 @@ const onRowGroupCollapse = (event) => {
     toast.add({ severity: 'success', summary: 'Row Group Collapsed', detail: 'Value: ' + event.data, life: 3000 });
 };
 
-
-/* Matching roles against volunteers 
-For each role(id): who (volunteer id) can do it, and which occasions [] they have a preference
-const capabilities = {
-    1: [
-        {"id": 1, "preference": [2,4]}, 
-        {"id": 4, "preference": [1]},
-        {"id": 6, "preference": [2,4]}
-    ],
-    2: [
-        {"id": 1, "preference": [2,4]}, 
-        {"id": 4, "preference": [1,3]},
-        {"id": 6, "preference": [2,4]}
-    ],
-};
-*/
-
 </script>
 
 <template>
