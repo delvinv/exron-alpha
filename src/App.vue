@@ -1,6 +1,17 @@
 <script setup>
+import { onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+import { useSettingsStore } from '@/stores/settings'
+import RawData from '@/services/RawData.js'
 
+const settings = useSettingsStore();
+
+onMounted(() => {
+  // Need to import data here...
+  // volunteers.value = RawData.getVolunteers();
+  // orgName.value = RawData.getOrgName();
+  settings.setOrgName(RawData.getOrgName());
+})
 </script>
 
 <template>
