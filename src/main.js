@@ -34,6 +34,7 @@ import ToastService from 'primevue/toastservice';
 import Dialog from 'primevue/dialog';
 import Chip from 'primevue/chip';
 import DialogService from 'primevue/dialogservice'
+import Card from 'primevue/card';
 
 app.use(ToastService);
 app.use(DialogService);
@@ -53,5 +54,6 @@ app.component('Toast', Toast);
 app.component('Dialog', Dialog);
 app.component('Dropdown', Dropdown);
 app.component('Chip', Chip);
+app.component('Card', Card);
 
 app.mount('#app')
