@@ -15,7 +15,7 @@ const volunteers =
         "id": 1,
         "forename": "Alan",
         "surname": "B",
-        "unavailable": ["2024-01-07"],
+        "unavailable": ["2024-01-07","2024-01-14"],
         "capabilities": [
             {roleId: 1, preferences: [2,4]},
             {roleId: 2, preferences: [1,3]},

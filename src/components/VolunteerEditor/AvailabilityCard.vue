@@ -8,11 +8,8 @@
     <Card>
     <!-- <template #title> Simple Card </template> -->
     <template #content>
-        <p class="m-0" v-if="props.empty">
+        <p class="m-0">
             No dates added yet.
-        </p>
-        <p class="m-0" v-else>
-            Dates added yo!
         </p>
     </template>
     </Card>

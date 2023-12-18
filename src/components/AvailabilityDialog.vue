@@ -1,7 +1,10 @@
 <template>
     <div class="card flex justify-content-center">
         <Button label="Volunteer Availability Editor" icon="pi pi-external-link" @click="visible = true" />
-        <Dialog v-model:visible="visible" modal header="Header" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+        <Dialog modal header="Header" :style="{ width: '50rem' }" 
+        :breakpoints="{ '1199px': '75vw', '575px': '90vw' }" 
+        v-model:visible="visible"> 
+        <!-- Change this to -- v-model:visible="visible" -->
             <template #header>
                 <div class="inline-flex align-items-center justify-content-center gap-2">
                     <span class="font-bold white-space-nowrap">Volunteer Availability Editor</span>
@@ -15,10 +18,14 @@
                 <div class="left-side">
                     <Dropdown v-model="selectedVolunteer" editable :options="volunteerStore.volunteers" @change="onDropdownChange"
                     optionLabel="forename" placeholder="Select a Volunteer" class="w-full md:w-14rem" />
-                    <Button label="Add Dates" severity="info" text raised />
+                    <Button label="Add Dates" severity="info" v-show="!isSelectedVolunteerUndefined"
+                    text raised />
                 </div>
                 <div class="right-side">
-                    <AvailabilityCard :empty=volunteerUnavailable></AvailabilityCard>
+                    <div v-if="!hasAvalabilityInfo"><p>No availability information.</p></div>
+                    <div v-else>
+                        <AvailabilityPanel :availabilityList="availabilityList"/>
+                    </div>
                 </div>
             </div>
             <template #footer>
@@ -30,30 +37,40 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useVolunteerStore } from '@/stores/volunteer'
-import AvailabilityCard from '@/components/VolunteerEditor/AvailabilityCard.vue';
+import AvailabilityPanel from '@/components/VolunteerEditor/AvailabilityPanel.vue';
+import { useVolunteerStore } from '@/stores/volunteer';
 import { useToast } from 'primevue/usetoast';
+import { ref, computed } from "vue";
 
-const visible = ref(false);
+const visible = ref(true);
 const toast = useToast();
 
 const selectedVolunteer = ref();
 const volunteerStore = useVolunteerStore();
 
-let volunteerUnavailable = true;
+let hasAvalabilityInfo = false;
+let availabilityList = ref();
 
 const onDropdownChange = (event) => {
     let { data, newValue, value } = event;
-    console.log((value));
-    toast.add({severity:'success', summary: 'Successful', detail: 'Selected: '+value.forename, life: 2000});
-    if (value.unavailable.length == 0) {
-        volunteerUnavailable = true;
+    if(typeof value.unavailable !== 'undefined'){
+        toast.add({severity:'success', summary: 'Successful', detail: 'Selected: '+value.forename, life: 2000});
+        if (value.unavailable.length == 0) {
+            availabilityList.value = [];
+            hasAvalabilityInfo = false;
+        } else {
+            availabilityList.value = value.unavailable;
+            hasAvalabilityInfo = true;
+        }
     } else {
-        volunteerUnavailable = false;
+        hasAvalabilityInfo = false;
+        availabilityList.value = [];
     }
-
 };
+
+const isSelectedVolunteerUndefined = computed(() => {
+      return typeof selectedVolunteer.value === 'undefined' || selectedVolunteer.value === '';
+    });
 </script>
 
 <style scoped>
