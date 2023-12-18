@@ -36,6 +36,9 @@ import Chip from 'primevue/chip';
 import DialogService from 'primevue/dialogservice'
 import Card from 'primevue/card';
 import Panel from 'primevue/panel';
+import Calendar from 'primevue/calendar';
+import Divider from 'primevue/divider';
+
 
 app.use(ToastService);
 app.use(DialogService);
@@ -57,5 +60,7 @@ app.component('Dropdown', Dropdown);
 app.component('Chip', Chip);
 app.component('Card', Card);
 app.component('Panel', Panel);
+app.component('Calendar', Calendar);
+app.component('Divider', Divider);
 
 app.mount('#app')

@@ -19,7 +19,9 @@
                     <Dropdown v-model="selectedVolunteer" editable :options="volunteerStore.volunteers" @change="onDropdownChange"
                     optionLabel="forename" placeholder="Select a Volunteer" class="w-full md:w-14rem" />
                     <Button label="Add Dates" severity="info" v-show="!isSelectedVolunteerUndefined"
-                    text raised />
+                    text raised @click="isAddButtonClicked = true;" />
+                    <Divider class="divider-custom" />
+                    <AvailabilityPicker :showForm="isAddButtonClicked" />
                 </div>
                 <div class="right-side">
                     <div v-if="!hasAvalabilityInfo"><p>No availability information.</p></div>
@@ -38,6 +40,7 @@
 
 <script setup>
 import AvailabilityPanel from '@/components/VolunteerEditor/AvailabilityPanel.vue';
+import AvailabilityPicker from '@/components/VolunteerEditor/AvailabilityPicker.vue';
 import { useVolunteerStore } from '@/stores/volunteer';
 import { useToast } from 'primevue/usetoast';
 import { ref, computed } from "vue";
@@ -50,8 +53,10 @@ const volunteerStore = useVolunteerStore();
 
 let hasAvalabilityInfo = false;
 let availabilityList = ref();
+let isAddButtonClicked = ref(false);
 
 const onDropdownChange = (event) => {
+    isAddButtonClicked.value = false;
     let { data, newValue, value } = event;
     if(typeof value.unavailable !== 'undefined'){
         toast.add({severity:'success', summary: 'Successful', detail: 'Selected: '+value.forename, life: 2000});
@@ -91,5 +96,10 @@ const isSelectedVolunteerUndefined = computed(() => {
     flex-direction: column;
     width: 50%;
     margin-right: 50px;
+}
+
+.divider-custom {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 </style>
