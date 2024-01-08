@@ -1,44 +1,43 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
-    import { OptimizedRoster } from '@/services/OptimizedRoster';
-    import { useRoleStore} from '@/stores/role'
-    import { useVolunteerStore } from '@/stores/volunteer'
-    import { useRosterStore} from '@/stores/roster'
-    import { useRosterSelectedStore} from '@/stores/rosterSelected'
+import { ref, onMounted } from 'vue';
+import { OptimizedRoster } from '@/services/OptimizedRoster';
+import { useRoleStore } from '@/stores/role'
+import { useVolunteerStore } from '@/stores/volunteer'
+import { useRosterStore } from '@/stores/roster'
+import { useRosterSelectedStore } from '@/stores/rosterSelected'
 
-    import { useToast } from 'primevue/usetoast';
-    import { storeToRefs } from 'pinia';
+import { useToast } from 'primevue/usetoast';
+import { storeToRefs } from 'pinia';
+import { useSettingsStore } from '@/stores/settings';
 
-    const roleStore = useRoleStore();
-    const { getRoleById } = storeToRefs(roleStore);
-    const volunteerStore = useVolunteerStore();
-    const { getVolunteerById } = storeToRefs(volunteerStore);
+const roleStore = useRoleStore();
+const { getRoleById } = storeToRefs(roleStore);
+const volunteerStore = useVolunteerStore();
+const { getVolunteerById } = storeToRefs(volunteerStore);
 
-    const rosterStore = useRosterStore();
-    const rosterSelectedStore = useRosterSelectedStore();
+const rosterStore = useRosterStore();
+const rosterSelectedStore = useRosterSelectedStore();
 
-    const occasions = [
-    { field: 'instance1', header: 'instance1' },
-    { field: 'instance2', header: 'instance2' },
-    { field: 'instance3', header: 'instance3' },
-    { field: 'instance4', header: 'instance4' }
-];
+const settings = useSettingsStore();
+
+const occasions = Array(settings.occasions).fill().map((_, i) => ({ idx: i, field: 'instance' + (i + 1), header: 'Instance ' + (i + 1) }));
+
 </script>
 
 <!-- Need a programmatic way of displaying data from roster here -->
 <template>
     <div class="card">
-        <DataTable :value="rosterStore.rosters.find(x => x.rosterId === rosterSelectedStore.rosterSelected).roster" 
+        <DataTable :value="rosterStore.rosters.find(x => x.rosterId === rosterSelectedStore.rosterSelected).roster"
             size="small" scrollable scrollHeight="400px" class="mt-4">
             <Column field="roleId" header="roleId" style="min-width: 100px" frozen class="font-bold">
                 <template #body="slotProps">
-                    <span class="roleName">{{ getRoleById(slotProps.data.roleId).name }}<br/></span>
+                    <span class="roleName">{{ getRoleById(slotProps.data.roleId).name }}<br /></span>
                 </template>
             </Column>
-            
+
             <Column v-for="occasion of occasions" :key="occasion.field" :field="occasion.field" :header="occasion.header">
                 <template #body="slotProps">
-                    <span>{{ getVolunteerById(slotProps.data.occasions[occasion.field]).forename }}<br/></span>
+                    <span>{{ getVolunteerById(slotProps.data.occasions[0]).forename }}<br /></span>
                 </template>
             </Column>
 
@@ -51,7 +50,7 @@
 </template>
 
 <style>
-.roleName{
+.roleName {
     font-weight: bold;
 }
 </style>
