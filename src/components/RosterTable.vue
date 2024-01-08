@@ -1,6 +1,4 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { OptimizedRoster } from '@/services/OptimizedRoster';
 import { useRoleStore } from '@/stores/role'
 import { useVolunteerStore } from '@/stores/volunteer'
 import { useRosterStore } from '@/stores/roster'
