@@ -38,6 +38,7 @@ import Card from 'primevue/card';
 import Panel from 'primevue/panel';
 import Calendar from 'primevue/calendar';
 import Divider from 'primevue/divider';
+import Slider from 'primevue/slider';
 
 
 app.use(ToastService);
@@ -62,5 +63,6 @@ app.component('Card', Card);
 app.component('Panel', Panel);
 app.component('Calendar', Calendar);
 app.component('Divider', Divider);
+app.component('Slider', Slider);
 
 app.mount('#app')

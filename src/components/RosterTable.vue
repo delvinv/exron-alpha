@@ -33,9 +33,9 @@ const occasions = Array(settings.occasions).fill().map((_, i) => ({ idx: i, fiel
                 </template>
             </Column>
 
-            <Column v-for="occasion of occasions" :key="occasion.field" :field="occasion.field" :header="occasion.header">
+            <Column v-for="(occasion, index) of occasions" :key="occasion.field" :field="occasion.field" :header="occasion.header">
                 <template #body="slotProps">
-                    <span>{{ getVolunteerById(slotProps.data.occasions[0]).forename }}<br /></span>
+                    <span>{{ getVolunteerById(slotProps.data.occasions[index]).forename }}<br /></span>
                 </template>
             </Column>
 

@@ -15,9 +15,11 @@ const volunteers =
       "surname": "B",
       "unavailable": ["2024-01-07", "2024-01-14"],
       "capabilities": [
-        { roleId: 1, preferences: [2, 4] },
-        { roleId: 2, preferences: [1, 3] },
-        { roleId: 3, preferences: [2, 4] }
+        { roleId: 6, preferences: [] },
+        { roleId: 7, preferences: [2, 4] },
+        { roleId: 8, preferences: [2, 4] },
+        { roleId: 12, preferences: [] },
+        { roleId: 13, preferences: [] }
       ]
     },
     {
@@ -26,7 +28,10 @@ const volunteers =
       "surname": "B",
       "unavailable": ["2024-01-07"],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 7, preferences: [2, 4] },
+        { roleId: 8, preferences: [2, 4] },
+        { roleId: 12, preferences: [] },
+        { roleId: 13, preferences: [] }
       ]
     },
     {
@@ -35,7 +40,9 @@ const volunteers =
       "surname": "B",
       "unavailable": ["2023-12-31"],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 1, preferences: [] },
+        { roleId: 4, preferences: [] },
+        { roleId: 10, preferences: [] }
       ]
     },
     {
@@ -44,7 +51,7 @@ const volunteers =
       "surname": "C",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 12, preferences: [] }
       ]
     },
     {
@@ -53,7 +60,8 @@ const volunteers =
       "surname": "C",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 12, preferences: [] },
+        { roleId: 6, preferences: [] }
       ]
     },
     {
@@ -62,7 +70,9 @@ const volunteers =
       "surname": "C",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 12, preferences: [] },
+        { roleId: 6, preferences: [] },
+        { roleId: 3, preferences: [] }
       ]
     },
     {
@@ -71,7 +81,7 @@ const volunteers =
       "surname": "E",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 13, preferences: [] }
       ]
     },
     {
@@ -80,7 +90,7 @@ const volunteers =
       "surname": "E",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 13, preferences: [] }
       ]
     },
     {
@@ -89,7 +99,9 @@ const volunteers =
       "surname": "G",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 4, preferences: [] },
+        { roleId: 10, preferences: [] },
+        { roleId: 13, preferences: [] }
       ]
     },
     {
@@ -98,7 +110,7 @@ const volunteers =
       "surname": "G",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 7, preferences: [] }
       ]
     },
     {
@@ -107,7 +119,8 @@ const volunteers =
       "surname": "H",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 1, preferences: [] },
+        { roleId: 4, preferences: [] }
       ]
     },
     {
@@ -116,7 +129,7 @@ const volunteers =
       "surname": "H",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 11, preferences: [] }
       ]
     },
     {
@@ -125,7 +138,8 @@ const volunteers =
       "surname": "H",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 3, preferences: [] },
+        { roleId: 5, preferences: [] }
       ]
     },
     {
@@ -134,7 +148,7 @@ const volunteers =
       "surname": "H",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 2, preferences: [] }
       ]
     },
     {
@@ -143,7 +157,7 @@ const volunteers =
       "surname": "H",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 12, preferences: [] }
       ]
     },
     {
@@ -152,7 +166,9 @@ const volunteers =
       "surname": "J",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 1, preferences: [] },
+        { roleId: 2, preferences: [] },
+        { roleId: 4, preferences: [] }
       ]
     },
     {
@@ -161,7 +177,7 @@ const volunteers =
       "surname": "J",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 13, preferences: [] }
       ]
     },
     {
@@ -170,7 +186,8 @@ const volunteers =
       "surname": "J",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 3, preferences: [] },
+        { roleId: 6, preferences: [] }
       ]
     },
     {
@@ -179,7 +196,9 @@ const volunteers =
       "surname": "K",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 8, preferences: [] },
+        { roleId: 9, preferences: [] },
+        { roleId: 12, preferences: [] }
       ]
     },
     {
@@ -188,7 +207,9 @@ const volunteers =
       "surname": "K",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 8, preferences: [] },
+        { roleId: 9, preferences: [] },
+        { roleId: 12, preferences: [] }
       ]
     },
     {
@@ -197,7 +218,7 @@ const volunteers =
       "surname": "M",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 1, preferences: [] }
       ]
     },
     {
@@ -206,7 +227,7 @@ const volunteers =
       "surname": "M",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 2, preferences: [] }
       ]
     },
     {
@@ -215,7 +236,7 @@ const volunteers =
       "surname": "M",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 6, preferences: [] }
       ]
     },
     {
@@ -224,7 +245,8 @@ const volunteers =
       "surname": "M",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 6, preferences: [] },
+        { roleId: 10, preferences: [] }
       ]
     },
     {
@@ -233,7 +255,7 @@ const volunteers =
       "surname": "O",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 12, preferences: [] }
       ]
     },
     {
@@ -242,7 +264,7 @@ const volunteers =
       "surname": "O",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 12, preferences: [] }
       ]
     },
     {
@@ -251,7 +273,7 @@ const volunteers =
       "surname": "R",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 3, preferences: [] }
       ]
     },
     {
@@ -260,7 +282,8 @@ const volunteers =
       "surname": "R",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 3, preferences: [] },
+        { roleId: 1, preferences: [] }
       ]
     },
     {
@@ -269,7 +292,8 @@ const volunteers =
       "surname": "R",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 6, preferences: [] },
+        { roleId: 12, preferences: [] },
       ]
     },
     {
@@ -278,7 +302,9 @@ const volunteers =
       "surname": "R",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 8, preferences: [1, 3] },
+        { roleId: 9, preferences: [1, 3] },
+        { roleId: 6, preferences: [1, 3] }
       ]
     },
     {
@@ -287,7 +313,12 @@ const volunteers =
       "surname": "R",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 8, preferences: [1, 3] },
+        { roleId: 9, preferences: [1, 3] },
+        { roleId: 6, preferences: [1, 3] },
+        { roleId: 5, preferences: [] },
+        { roleId: 7, preferences: [] },
+        { roleId: 10, preferences: [] }
       ]
     },
     {
@@ -296,7 +327,10 @@ const volunteers =
       "surname": "T",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 3, preferences: [] },
+        { roleId: 4, preferences: [] },
+        { roleId: 5, preferences: [] },
+        { roleId: 7, preferences: [] }
       ]
     },
     {
@@ -305,7 +339,9 @@ const volunteers =
       "surname": "V",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 1, preferences: [] },
+        { roleId: 2, preferences: [] },
+        { roleId: 3, preferences: [] }
       ]
     },
     {
@@ -314,7 +350,7 @@ const volunteers =
       "surname": "V",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 13, preferences: [] }
       ]
     },
     {
@@ -323,7 +359,8 @@ const volunteers =
       "surname": "W",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 3, preferences: [] },
+        { roleId: 7, preferences: [] },
       ]
     },
     {
@@ -332,7 +369,10 @@ const volunteers =
       "surname": "Y",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 6, preferences: [] },
+        { roleId: 8, preferences: [] },
+        { roleId: 9, preferences: [] },
+        { roleId: 12, preferences: [] }
       ]
     },
     {
@@ -341,7 +381,10 @@ const volunteers =
       "surname": "Y",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 6, preferences: [] },
+        { roleId: 8, preferences: [] },
+        { roleId: 9, preferences: [] },
+        { roleId: 10, preferences: [] }
       ]
     },
     {
@@ -350,7 +393,7 @@ const volunteers =
       "surname": " ",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 10, preferences: [] }
       ]
     },
     {
@@ -359,7 +402,25 @@ const volunteers =
       "surname": " ",
       "unavailable": [],
       "capabilities": [
-        { roleId: 4, preferences: [2, 4] }
+        { roleId: 9, preferences: [] }
+      ]
+    },
+    {
+      "id": 40,
+      "forename": "Praveen",
+      "surname": "E",
+      "unavailable": [],
+      "capabilities": [
+        { roleId: 2, preferences: [] }
+      ]
+    },
+    {
+      "id": 41,
+      "forename": "Marg",
+      "surname": "J",
+      "unavailable": [],
+      "capabilities": [
+        { roleId: 10, preferences: [] }
       ]
     }
   ];
@@ -376,7 +437,7 @@ const roles = [
     "id": 1,
     "name": "Audio",
     "numbers": 1,
-    "isNoOtherTasks": false,
+    "isNoOtherTasks": true,
     "isNoConsecutiveWeeks": true,
     "roleClashes": [5, 6]
   },
@@ -392,7 +453,7 @@ const roles = [
     "id": 3,
     "name": "Musicians",
     "numbers": 2,
-    "isNoOtherTasks": false,
+    "isNoOtherTasks": true,
     "isNoConsecutiveWeeks": true,
     "roleClashes": []
   },
@@ -408,7 +469,7 @@ const roles = [
     "id": 5,
     "name": "Speaker",
     "numbers": 1,
-    "isNoOtherTasks": false,
+    "isNoOtherTasks": true,
     "isNoConsecutiveWeeks": true,
     "roleClashes": [1]
   },
@@ -424,7 +485,7 @@ const roles = [
     "id": 7,
     "name": "Comm Message",
     "numbers": 1,
-    "isNoOtherTasks": false,
+    "isNoOtherTasks": true,
     "isNoConsecutiveWeeks": true,
     "roleClashes": []
   },

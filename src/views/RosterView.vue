@@ -6,11 +6,13 @@ import { useRosterStore } from '@/stores/roster';
 import { generateRoster } from '@/services/Scheduler';
 
 const loading = ref(false);
+const sliderValue = ref(5000);
 const rosterStore = useRosterStore();
 
 const load = async () => {
+  console.log("waiting for.. "+sliderValue.value);
   loading.value = true;
-  let roster = await generateRoster(2000);
+  let roster = await generateRoster(sliderValue.value);
   console.log(roster);
   rosterStore.addRoster(roster);
   loading.value = false;
@@ -33,6 +35,25 @@ const load = async () => {
     </div>
   </div>
   <div class="card flex justify-content-center">
-    <Button type="button" label="Generate New Roster?" icon="pi pi-search" :loading="loading" @click="load" />
+    <Button type="button" label="Generate New Roster" icon="pi pi-search" :loading="loading" @click="load" class="generateButton"/>
+    <div class="w-14rem sliderDiv">
+            <InputText v-model.number="sliderValue" class="w-full" />
+            <Slider v-model="sliderValue" :min="2000" :max="120000" :step="1000" class="w-full" />
+        </div>
   </div>
 </template>
+
+<style>
+  .sliderDiv {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin: 10px;
+  }
+
+  .generateButton {
+    max-height: 50px;
+    display: inline;
+    vertical-align: middle;
+    margin-top: 25px;
+  }
+</style>
