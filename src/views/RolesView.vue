@@ -139,12 +139,12 @@ const onCellEditComplete = (event) => {
         <InputText v-model="data[field]" autofocus />
       </template>
     </Column>
-    <Column :exportable="false" style="min-width:8rem">
+    <!-- <Column :exportable="false" style="min-width:8rem">
       <template #body="slotProps">
           <Button icon="pi pi-pencil" outlined rounded class="mr-2" @click="editRole(slotProps.data)" />
           <Button icon="pi pi-trash" outlined rounded severity="danger" @click="confirmDeleteRole(slotProps.data)" />
       </template>
-    </Column>
+    </Column> -->
     <template #footer> <div class="table-footer">In total there are {{ roleStore.roles ? roleStore.roles.length : 0 }} roles. </div></template>
 </DataTable>
 

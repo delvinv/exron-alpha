@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue';
-import RosterSelector from '@/components/RosterSelector.vue';
-import RosterTable from '@/components/RosterTable.vue';
+import RosterSelector from '@/components/Roster/RosterSelector.vue';
+import RosterTable from '@/components/Roster/RosterTable.vue';
+import RosterAnalytics from '@/components/Roster/RosterAnalytics.vue';
 import { useRosterStore } from '@/stores/roster';
 import { generateRoster } from '@/services/Scheduler';
 
@@ -41,6 +42,10 @@ const onCountdownEnd = () => {
     <div class="field col">
       <h3>Here's the roster you selected</h3>
       <RosterTable></RosterTable>
+    </div>
+    <div class="field col">
+      <h3>Insights for this roster:</h3>
+      <RosterAnalytics></RosterAnalytics>
     </div>
   </div>
   <!-- <div class="card flex justify-content-center">

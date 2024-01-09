@@ -18,7 +18,14 @@ const rosterSelectedStore = useRosterSelectedStore();
 
 const settings = useSettingsStore();
 
-const occasions = Array(settings.occasions).fill().map((_, i) => ({ idx: i, field: 'instance' + (i + 1), header: 'Instance ' + (i + 1) }));
+const occasions = Array(settings.occasions) // Creates an array with length based on the value of settings.occasions
+  .fill() // Fills the array with undefined values (default fill value is undefined)
+  .map((_, i) => ({ // Maps each element of the array to a new object using the map function
+    idx: i, // Assigns the index (i) as the idx property of the object
+    field: 'instance' + (i + 1), // Generates a field property with a string value ('instance' + (i + 1))
+    header: 'Instance ' + (i + 1) // Generates a header property with a string value ('Instance ' + (i + 1))
+  }));
+
 
 </script>
 
