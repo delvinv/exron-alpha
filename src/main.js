@@ -40,6 +40,8 @@ import Calendar from 'primevue/calendar';
 import Divider from 'primevue/divider';
 import Slider from 'primevue/slider';
 
+// Countdown Timer: https://github.com/fengyuanchen/vue-countdown
+import VueCountdown from '@chenfengyuan/vue-countdown';
 
 app.use(ToastService);
 app.use(DialogService);
@@ -64,5 +66,6 @@ app.component('Panel', Panel);
 app.component('Calendar', Calendar);
 app.component('Divider', Divider);
 app.component('Slider', Slider);
+app.component(VueCountdown.name, VueCountdown);
 
 app.mount('#app')

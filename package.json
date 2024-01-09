@@ -11,11 +11,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^2.1.2",
     "dayspan-vuetify": "^0.4.0",
     "pinia": "^2.1.7",
     "primeflex": "^3.3.1",
     "primevue": "^3.43.0",
-    "vue": "^3.3.10",
+    "vue": "^3.4.6",
     "vue-router": "^4.2.5",
     "vuetify": "^3.4.7"
   },

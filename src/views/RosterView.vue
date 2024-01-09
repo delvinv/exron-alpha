@@ -17,6 +17,15 @@ const load = async () => {
   rosterStore.addRoster(roster);
   loading.value = false;
 };
+
+const startCountdown = () => {
+  loading.value = true;
+  load();
+};
+
+const onCountdownEnd = () => {
+  loading.value = false;
+};
 </script>
 
 <template>
@@ -34,12 +43,23 @@ const load = async () => {
       <RosterTable></RosterTable>
     </div>
   </div>
-  <div class="card flex justify-content-center">
+  <!-- <div class="card flex justify-content-center">
     <Button type="button" label="Generate New Roster" icon="pi pi-search" :loading="loading" @click="load" class="generateButton"/>
     <div class="w-14rem sliderDiv">
             <InputText v-model.number="sliderValue" class="w-full" />
             <Slider v-model="sliderValue" :min="2000" :max="120000" :step="1000" class="w-full" />
-        </div>
+    </div>
+  </div> -->
+
+  <div class="card flex justify-content-center">
+    <Button type="button" class="btn btn-primary generateButton" :disabled="loading" @click="startCountdown" >
+      <vue-countdown v-if="loading" :time="sliderValue" @end="onCountdownEnd" v-slot="{ totalSeconds }">Generate again in {{ totalSeconds }}s</vue-countdown>
+      <span v-else>Generate New Roster</span>
+    </Button>
+    <div class="w-14rem sliderDiv">
+      <InputText v-model.number="sliderValue" class="w-full" />
+      <Slider v-model="sliderValue" :min="2000" :max="120000" :step="1000" class="w-full" />
+    </div>
   </div>
 </template>
 
