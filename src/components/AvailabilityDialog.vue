@@ -26,7 +26,7 @@
                 <div class="right-side">
                     <div v-if="!hasAvalabilityInfo"><p>No availability information.</p></div>
                     <div v-else>
-                        <AvailabilityPanel :availabilityList="availabilityList"/>
+                        <AvailabilityPanel :availabilityList="availabilityList" class="AvailabilityPanel"/>
                     </div>
                 </div>
             </div>
@@ -87,15 +87,16 @@ const isSelectedVolunteerUndefined = computed(() => {
 .left-side {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    margin-right: 50px;
+    width: 45%;
+    margin-right: 20px;
 }
 
 .right-side {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin-right: 50px;
+    width: 55%;
+    margin-right: 20px;
+    height: max-content;
 }
 
 .divider-custom {
