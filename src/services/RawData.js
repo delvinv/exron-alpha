@@ -546,17 +546,153 @@ const capabilities = [
   {
     roleId: 1,
     trainedVols: [
-      { volunteerId: 9, preferences: [2, 4] },
-      { volunteerId: 8, preferences: [1] },
-      { volunteerId: 7, preferences: [2, 4] }
+      { volunteerId: 3, preferences: [] },
+      { volunteerId: 11, preferences: [] },
+      { volunteerId: 16, preferences: [] },
+      { volunteerId: 33, preferences: [] },
+      { volunteerId: 21, preferences: [] }
     ]
   },
   {
     roleId: 2,
     trainedVols: [
-      { volunteerId: 1, preferences: [2, 4] },
-      { volunteerId: 4, preferences: [1, 3] },
-      { volunteerId: 6, preferences: [2, 4] }
+      { volunteerId: 33, preferences: [] },
+      { volunteerId: 40, preferences: [] },
+      { volunteerId: 14, preferences: [] },
+      { volunteerId: 16, preferences: [] },
+      { volunteerId: 22, preferences: [] },
+
+    ]
+  },
+  {
+    roleId: 3,
+    trainedVols: [
+      { volunteerId: 6, preferences: [] },
+      { volunteerId: 13, preferences: [] },
+      { volunteerId: 18, preferences: [] },
+      { volunteerId: 27, preferences: [] },
+      { volunteerId: 28, preferences: [] },
+      { volunteerId: 32, preferences: [] },
+      { volunteerId: 33, preferences: [] },
+      { volunteerId: 35, preferences: [] }
+    ]
+  },
+  {
+    roleId: 4,
+    trainedVols: [
+      { volunteerId: 3, preferences: [] },
+      { volunteerId: 9, preferences: [] },
+      { volunteerId: 11, preferences: [] },
+      { volunteerId: 16, preferences: [] },
+      { volunteerId: 4, preferences: [] }
+    ]
+  },
+  {
+    roleId: 5,
+    trainedVols: [
+      { volunteerId: 13, preferences: [] },
+      { volunteerId: 31, preferences: [] },
+      { volunteerId: 32, preferences: [] }
+    ]
+  },
+  {
+    roleId: 6,
+    trainedVols: [
+      { volunteerId: 5, preferences: [] },
+      { volunteerId: 6, preferences: [] },
+      { volunteerId: 1, preferences: [] },
+      { volunteerId: 18, preferences: [] },
+      { volunteerId: 23, preferences: [] },
+      { volunteerId: 24, preferences: [] },
+      { volunteerId: 29, preferences: [] },
+      { volunteerId: 30, preferences: [1,3] },
+      { volunteerId: 31, preferences: [1,3] },
+      { volunteerId: 36, preferences: [] },
+      { volunteerId: 37, preferences: [] }
+    ]
+  },
+  {
+    roleId: 7,
+    trainedVols: [
+      { volunteerId: 10, preferences: [] },
+      { volunteerId: 28, preferences: [] },
+      { volunteerId: 31, preferences: [] },
+      { volunteerId: 32, preferences: [] },
+      { volunteerId: 35, preferences: [] }
+    ]
+  },
+  {
+    roleId: 8,
+    trainedVols: [
+      { volunteerId: 1, preferences: [2,4] },
+      { volunteerId: 2, preferences: [2,4] },
+      { volunteerId: 19, preferences: [] },
+      { volunteerId: 20, preferences: [] },
+      { volunteerId: 30, preferences: [1,3] },
+      { volunteerId: 31, preferences: [1,3] },
+      { volunteerId: 36, preferences: [] },
+      { volunteerId: 37, preferences: [] }
+    ]
+  },
+  {
+    roleId: 9,
+    trainedVols: [
+      { volunteerId: 1, preferences: [2,4] },
+      { volunteerId: 2, preferences: [2,4] },
+      { volunteerId: 19, preferences: [] },
+      { volunteerId: 20, preferences: [] },
+      { volunteerId: 30, preferences: [1,3] },
+      { volunteerId: 31, preferences: [1,3] },
+      { volunteerId: 36, preferences: [] },
+      { volunteerId: 36, preferences: [] },
+      { volunteerId: 39, preferences: [] }
+    ]
+  },
+  {
+    roleId: 10,
+    trainedVols: [
+      { volunteerId: 3, preferences: [] },
+      { volunteerId: 9, preferences: [] },
+      { volunteerId: 24, preferences: [] },
+      { volunteerId: 31, preferences: [] },
+      { volunteerId: 37, preferences: [] },
+      { volunteerId: 38, preferences: [] },
+      { volunteerId: 41, preferences: [] }
+    ]
+  },
+  {
+    roleId: 11,
+    trainedVols: [
+      { volunteerId: 12, preferences: [] },
+    ]
+  },
+  {
+    roleId: 12,
+    trainedVols: [
+      { volunteerId: 1, preferences: [] },
+      { volunteerId: 2, preferences: [] },
+      { volunteerId: 4, preferences: [] },
+      { volunteerId: 5, preferences: [] },
+      { volunteerId: 6, preferences: [] },
+      { volunteerId: 15, preferences: [] },
+      { volunteerId: 19, preferences: [] },
+      { volunteerId: 20, preferences: [] },
+      { volunteerId: 25, preferences: [] },
+      { volunteerId: 26, preferences: [] },
+      { volunteerId: 29, preferences: [] },
+      { volunteerId: 36, preferences: [] }
+    ]
+  },
+  {
+    roleId: 13,
+    trainedVols: [
+      { volunteerId: 1, preferences: [] },
+      { volunteerId: 2, preferences: [] },
+      { volunteerId: 7, preferences: [] },
+      { volunteerId: 8, preferences: [] },
+      { volunteerId: 9, preferences: [] },
+      { volunteerId: 17, preferences: [] },
+      { volunteerId: 34, preferences: [] },
     ]
   }
 ];

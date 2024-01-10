@@ -32,6 +32,6 @@ const onRowSelect = (event) => {
     let { data } = event;
     console.log((data.rosterId));
     rosterSelectedStore.setRosterSelected(data.rosterId);
-    toast.add({severity:'success', summary: 'Successful', detail: 'Selected roster', life: 3000});
+    toast.add({severity:'success', summary: 'Selected roster:', detail: data.rosterId, life: 3000});
 };
 </script>

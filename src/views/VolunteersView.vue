@@ -36,8 +36,8 @@ const onCellEditComplete = (event) => {
                 }
             }"
   >
-    <Column field="id" header="id" sortable></Column>
-    <Column field="forename" header="Forename" sortable>
+    <Column field="id" header="id" style="width: 2rem" sortable></Column>
+    <Column field="forename" header="Forename" style="width: 5rem" sortable>
       <template #body="{ data, field }">
         {{ data[field] }}
       </template>
@@ -45,7 +45,7 @@ const onCellEditComplete = (event) => {
         <InputText v-model="data[field]" autofocus />
       </template>
     </Column>
-    <Column field="surname" header="Surname" sortable>
+    <Column field="surname" header="Surname" style="width: 5rem" sortable>
       <template #body="{ data, field }">
         {{ data[field] }}
       </template>

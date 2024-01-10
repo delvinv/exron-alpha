@@ -45,7 +45,7 @@ import { useVolunteerStore } from '@/stores/volunteer';
 import { useToast } from 'primevue/usetoast';
 import { ref, computed } from "vue";
 
-const visible = ref(true);
+const visible = ref(false);
 const toast = useToast();
 
 const selectedVolunteer = ref();

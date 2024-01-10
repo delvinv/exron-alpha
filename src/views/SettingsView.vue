@@ -21,7 +21,7 @@ const settings = useSettingsStore();
     </div>
     <div class="section">
       <label for="occasions">Occasions</label>
-      <InputText id="occasions" v-model="settings.occasions" aria-describedby="occasions-help" />
+      <InputText id="occasions" type="number" v-model.number="settings.occasions" aria-describedby="occasions-help" />
             <small id="occasions-help">How many occasions to roster for?</small>
     </div>
 
