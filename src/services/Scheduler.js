@@ -17,7 +17,7 @@ export async function generateRoster(timeLimit = null) {
 	model.addFile('volunteer_scheduling.mzn', MznModel)
 	model.interface({
 		options: {
-			solver: 'gecode'
+			solver: 'chuffed'
 		}
 	})
 	// Load data from stores
@@ -59,7 +59,7 @@ export async function generateRoster(timeLimit = null) {
 		const result = await model.solve({
 			options: options,
 		})
-		// console.log(result.status);
+		console.log(result.status);
 		console.log(result.solution);
 		if (result.solution !== null) {
 			const assignment = result.solution.output.json.assignment
