@@ -13,7 +13,7 @@ const volunteers =
       "id": 1,
       "forename": "Alan",
       "surname": "B",
-      "unavailable": ["2024-01-07", "2024-01-14"],
+      "unavailable": [1, 2],
       "capabilities": [
         { roleId: 6, preferences: [] },
         { roleId: 7, preferences: [2, 4] },
@@ -26,7 +26,7 @@ const volunteers =
       "id": 2,
       "forename": "Bev",
       "surname": "B",
-      "unavailable": ["2024-01-07"],
+      "unavailable": [1],
       "capabilities": [
         { roleId: 7, preferences: [2, 4] },
         { roleId: 8, preferences: [2, 4] },
@@ -38,7 +38,7 @@ const volunteers =
       "id": 3,
       "forename": "Paul",
       "surname": "B",
-      "unavailable": ["2023-12-31"],
+      "unavailable": [2],
       "capabilities": [
         { roleId: 1, preferences: [] },
         { roleId: 4, preferences: [] },
