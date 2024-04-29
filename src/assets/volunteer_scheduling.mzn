@@ -10,9 +10,10 @@ enum RoleConstraints = {
 
 % --- INPUT DATA ---
 
-% From all the scheduled occasions, how many times can a volunteer be assigned a
-% particular roles.
-array[Volunteer, Role] of 0..card(Occasion): capability;
+% Whether a volunteer has the capability to fulfil a role.
+array[Volunteer, Role] of bool: capability;
+% Whether a volunteer is available for a particular occasion.
+array[Volunteer, Occasion] of bool: availability;
 
 % A collection of roles that are mutually exclusive
 array[int] of tuple(Role, Role): exclusive_roles;
@@ -26,14 +27,22 @@ array[Role] of set of RoleConstraints: restrictions;
 array[Occasion, Role] of var Volunteer: assignment;
 
 % --- CONSTRAINTS ---
-include "global_cardinality_low_up.mzn";
 
-% A volunteer cannot be assigned a role more time then possible accord to their
-% capability
-constraint forall(r in Role) (
-	global_cardinality_low_up(assignment[.., r], Volunteer, [v: 0 | v in Volunteer], capability[.., r])
+% A volunteer cannot be assigned a role that it is not capable of fulfilling.
+constraint forall (v in Volunteer, r in Role where not capability[v,r]) (
+	forall (o in Occasion) (
+		assignment[o, r] != v
+	)
 );
 
+% A volunteer cannot be assigned a role on a week where they are not available.
+constraint forall (v in Volunteer, o in Occasion where not availability[v,o]) (
+	forall (r in Role) (
+		assignment[o, r] != v
+	)
+);
+
+% A volunteer cannot be assigned two roles in the same occasion that are mutually exclusive.
 constraint forall(excl in exclusive_roles) (
 	forall(o in Occasion) (
 		assignment[o, excl.1] != assignment[o, excl.2]
@@ -61,4 +70,6 @@ include "global_cardinality_fn.mzn";
 
 % Optimize the assignment by minimizing the number of that a volunteer gets assigned.
 array[Volunteer] of var int: num_roles = global_cardinality(assignment, [v: v | v in Volunteer]);
-solve minimize sum(v in Volunteer) (num_roles[v]^2);
+solve
+	:: int_search(assignment, input_order, indomain_random, complete)
+	minimize sum(v in Volunteer) (num_roles[v]^2);

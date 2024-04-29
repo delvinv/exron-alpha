@@ -1,9 +1,12 @@
-import { Model } from 'https://cdn.jsdelivr.net/npm/minizinc/dist/minizinc.mjs'
+import { Model } from 'https://cdn.jsdelivr.net/npm/minizinc@edge/dist/minizinc.mjs'
 
 import { useRoleStore } from '@/stores/role'
 import { useSettingsStore } from '@/stores/settings'
 import { useVolunteerStore } from '@/stores/volunteer'
+import { useCapabilityStore } from '@/stores/capability'
 import MznModel from '@/assets/volunteer_scheduling.mzn?raw'
+
+const SOLVER = 'highs'
 
 // Generate a (new) roster given the current data in the stores. If no roster
 // can be created (because at least one of the rules must be violated), then
@@ -17,13 +20,33 @@ export async function generateRoster(timeLimit = null) {
   model.addFile('volunteer_scheduling.mzn', MznModel)
   model.interface({
     options: {
-      solver: 'chuffed'
+      solver: SOLVER
     }
   })
   // Load data from stores
   const roleStore = useRoleStore()
   const settings = useSettingsStore()
   const volunteerStore = useVolunteerStore()
+  const capabilityStore = useCapabilityStore()
+
+  let capabilities = Array(volunteerStore.volunteers.length)
+    .fill()
+    .map(() => Array(roleStore.roles.length).fill(false))
+  for (const cap of capabilityStore.capabilities) {
+    const role = cap.roleId
+    for (const v of cap.trainedVols) {
+      const vol = v.volunteerId
+      capabilities[vol - 1][role - 1] = true
+    }
+  }
+  let availablities = Array(volunteerStore.volunteers.length)
+    .fill()
+    .map(() => Array(settings.occasions).fill(true))
+  for (const vol of volunteerStore.volunteers) {
+    for (const occ of vol.unavailable) {
+      availablities[vol.id - 1][occ - 1] = false
+    }
+  }
 
   const data = {
     occasions: settings.occasions,
@@ -40,20 +63,19 @@ export async function generateRoster(timeLimit = null) {
       let setObj = { set: rules }
       return setObj
     }),
-    // TODO
-    capability: volunteerStore.volunteers.map((_v) =>
-      roleStore.roles.map((_r) => settings.occasions)
-    ),
+    capability: capabilities,
+    availability: availablities,
     exclusive_roles: roleStore.roles.flatMap((r) =>
       r.roleClashes.filter((i) => i > r.id).map((i) => [{ e: `r${r.id}` }, { e: `r${i}` }])
     )
   }
   model.addJson(data)
-  // console.log(data);
+  // console.log(data)
   // Solve and process
-  let roster = null
+  let roster = {}
   let options = {
-    solver: 'gecode'
+    solver: SOLVER,
+    'output-objective': true
   }
   if (timeLimit !== null) {
     options['time-limit'] = timeLimit
@@ -63,19 +85,19 @@ export async function generateRoster(timeLimit = null) {
     const result = await model.solve({
       options: options
     })
-    console.log(result.status)
-    console.log(result.solution)
+    // console.log(result.status)
+    // console.log(result.solution)
+    roster = {
+      rosterId: Math.floor(Date.now() / 1000),
+      date: new Date().toISOString().substring(0, 10),
+      status: result.status
+    }
     if (result.solution !== null) {
       const assignment = result.solution.output.json.assignment
-      roster = {
-        // TODO: Probably should be last ID + 1
-        rosterId: Math.floor(Date.now() / 1000),
-        date: new Date().toISOString().substring(0, 10),
-        roster: roleStore.roles.map((r, i) => ({
-          roleId: r.id,
-          occasions: assignment.map((li) => Number(li[i].e.substring(1)))
-        }))
-      }
+      roster['roster'] = roleStore.roles.map((r, i) => ({
+        roleId: r.id,
+        occasions: assignment.map((li) => Number(li[i].e.substring(1)))
+      }))
     }
   } catch (error) {
     console.error(error)
