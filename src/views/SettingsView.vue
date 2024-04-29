@@ -4,11 +4,9 @@
 // const settings = storeToRefs(useSettingsStore());
 import { useSettingsStore } from '@/stores/settings'
 
-const settings = useSettingsStore();
+const settings = useSettingsStore()
 
 // let orgName = ref(null)
-
-
 </script>
 
 <template>
@@ -17,12 +15,17 @@ const settings = useSettingsStore();
     <div class="section">
       <label for="username">Organisation</label>
       <InputText id="username" v-model="settings.orgName" aria-describedby="org-help" />
-            <small id="org-help">Enter a short name for your organisation.</small>
+      <small id="org-help">Enter a short name for your organisation.</small>
     </div>
     <div class="section">
       <label for="occasions">Occasions</label>
-      <InputText id="occasions" type="number" v-model.number="settings.occasions" aria-describedby="occasions-help" />
-            <small id="occasions-help">How many occasions to roster for?</small>
+      <InputText
+        id="occasions"
+        type="number"
+        v-model.number="settings.occasions"
+        aria-describedby="occasions-help"
+      />
+      <small id="occasions-help">How many occasions to roster for?</small>
     </div>
 
     <!-- <div class="card flex justify-content-center">
@@ -31,17 +34,16 @@ const settings = useSettingsStore();
             <Button label="Reset to default" icon="pi pi-times" />
         </span>
     </div> -->
-    
   </div>
   <Toast />
 </template>
 
 <style scoped>
 .settings {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    text-align: left
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .section {
@@ -50,6 +52,4 @@ const settings = useSettingsStore();
   text-align: left;
   margin-bottom: 10px;
 }
-
-
 </style>

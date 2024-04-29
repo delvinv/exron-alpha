@@ -11,10 +11,10 @@ export const useCapabilityStore = defineStore({
     getCapabilities(state) {
       return state.capabilities
     }
-  }, 
+  },
   actions: {
     setCapabilities(capabilities) {
-      this.capabilities = capabilities;
+      this.capabilities = capabilities
     }
   }
 })

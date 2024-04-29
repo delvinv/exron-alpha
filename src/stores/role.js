@@ -14,10 +14,10 @@ export const useRoleStore = defineStore({
     getRoleById: (state) => {
       return (roleId) => state.roles.find((role) => role.id === roleId)
     }
-  }, 
+  },
   actions: {
     setRoles(roles) {
-      this.roles = roles;
+      this.roles = roles
     }
   }
 })

@@ -14,13 +14,13 @@ export const useSettingsStore = defineStore({
     getOrgName(state) {
       return state.orgName
     }
-  }, 
+  },
   actions: {
     setOrgName(name) {
-      this.orgName = name;
+      this.orgName = name
     },
     setOccasions(num) {
-      this.occasions = num;
+      this.occasions = num
     }
     /* async fetchPosts() {
       this.posts = []

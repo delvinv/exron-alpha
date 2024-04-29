@@ -5,15 +5,16 @@ defineProps({
     required: true
   }
 })
-
 </script>
 
 <template>
-    <div class="volunteer-card">
-      <!-- Display volunteer data here -->
-      <h2>{{ volunteer.forename }} {{ volunteer.surname }}</h2>
-      <span v-if="volunteer.unavailable.length">Unavailable on {{ volunteer.unavailable.join(', ') }}</span>
-    </div>
+  <div class="volunteer-card">
+    <!-- Display volunteer data here -->
+    <h2>{{ volunteer.forename }} {{ volunteer.surname }}</h2>
+    <span v-if="volunteer.unavailable.length"
+      >Unavailable on {{ volunteer.unavailable.join(', ') }}</span
+    >
+  </div>
 </template>
 
 <style scoped>

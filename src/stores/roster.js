@@ -14,13 +14,13 @@ export const useRosterStore = defineStore({
     getRosterById: (state) => {
       return (rosterId) => state.rosters.find((roster) => roster.rosterId === rosterId)
     }
-  }, 
+  },
   actions: {
     setRosters(rosters) {
-      this.rosters = rosters;
+      this.rosters = rosters
     },
-    addRoster(roster){
-      this.rosters.push(roster);
+    addRoster(roster) {
+      this.rosters.push(roster)
     }
   }
-})    
+})

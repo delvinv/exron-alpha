@@ -1,32 +1,32 @@
 <script setup>
-import { ref } from 'vue';
-import RosterSelector from '@/components/Roster/RosterSelector.vue';
-import RosterTable from '@/components/Roster/RosterTable.vue';
-import RosterAnalytics from '@/components/Roster/RosterAnalytics.vue';
-import { useRosterStore } from '@/stores/roster';
-import { generateRoster } from '@/services/Scheduler';
+import { ref } from 'vue'
+import RosterSelector from '@/components/Roster/RosterSelector.vue'
+import RosterTable from '@/components/Roster/RosterTable.vue'
+import RosterAnalytics from '@/components/Roster/RosterAnalytics.vue'
+import { useRosterStore } from '@/stores/roster'
+import { generateRoster } from '@/services/Scheduler'
 
-const loading = ref(false);
-const sliderValue = ref(5000);
-const rosterStore = useRosterStore();
+const loading = ref(false)
+const sliderValue = ref(5000)
+const rosterStore = useRosterStore()
 
 const load = async () => {
-  console.log("waiting for.. "+sliderValue.value);
-  loading.value = true;
-  let roster = await generateRoster(sliderValue.value);
-  console.log(roster);
-  rosterStore.addRoster(roster);
-  loading.value = false;
-};
+  console.log('waiting for.. ' + sliderValue.value)
+  loading.value = true
+  let roster = await generateRoster(sliderValue.value)
+  console.log(roster)
+  rosterStore.addRoster(roster)
+  loading.value = false
+}
 
 const startCountdown = () => {
-  loading.value = true;
-  load();
-};
+  loading.value = true
+  load()
+}
 
 const onCountdownEnd = () => {
-  loading.value = false;
-};
+  loading.value = false
+}
 </script>
 
 <template>
@@ -57,8 +57,19 @@ const onCountdownEnd = () => {
   </div> -->
 
   <div class="card flex justify-content-center">
-    <Button type="button" class="btn btn-primary generateButton" :disabled="loading" @click="startCountdown" >
-      <vue-countdown v-if="loading" :time="sliderValue" @end="onCountdownEnd" v-slot="{ totalSeconds }">Generate again in {{ totalSeconds }}s</vue-countdown>
+    <Button
+      type="button"
+      class="btn btn-primary generateButton"
+      :disabled="loading"
+      @click="startCountdown"
+    >
+      <vue-countdown
+        v-if="loading"
+        :time="sliderValue"
+        @end="onCountdownEnd"
+        v-slot="{ totalSeconds }"
+        >Generate again in {{ totalSeconds }}s</vue-countdown
+      >
       <span v-else>Generate New Roster</span>
     </Button>
     <div class="w-14rem sliderDiv">
@@ -69,16 +80,16 @@ const onCountdownEnd = () => {
 </template>
 
 <style>
-  .sliderDiv {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    margin: 10px;
-  }
+.sliderDiv {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin: 10px;
+}
 
-  .generateButton {
-    max-height: 50px;
-    display: inline;
-    vertical-align: middle;
-    margin-top: 25px;
-  }
+.generateButton {
+  max-height: 50px;
+  display: inline;
+  vertical-align: middle;
+  margin-top: 25px;
+}
 </style>

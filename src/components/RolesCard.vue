@@ -5,15 +5,14 @@ defineProps({
     required: true
   }
 })
-
 </script>
 
 <template>
-    <div class="role-card">
-      <!-- Display volunteer data here -->
-      <h3>{{ role.name }}</h3>
-      <span v-if="role.numbers">Reqiures: {{ role.numbers }}</span>
-    </div>
+  <div class="role-card">
+    <!-- Display volunteer data here -->
+    <h3>{{ role.name }}</h3>
+    <span v-if="role.numbers">Reqiures: {{ role.numbers }}</span>
+  </div>
 </template>
 
 <style scoped>

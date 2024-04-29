@@ -11,10 +11,10 @@ export const useRosterSelectedStore = defineStore({
     getRosterSelected(state) {
       return state.rosterSelected
     }
-  }, 
+  },
   actions: {
     setRosterSelected(rosterSelected) {
-      this.rosterSelected = rosterSelected;
+      this.rosterSelected = rosterSelected
     }
   }
-})    
+})
