@@ -29,27 +29,25 @@ export async function generateRoster(timeLimit = null) {
   const volunteerStore = useVolunteerStore()
   const capabilityStore = useCapabilityStore()
 
-  let capabilities = Array(volunteerStore.volunteers.length)
-    .fill()
-    .map(() => Array(roleStore.roles.length).fill(false))
-  for (const cap of capabilityStore.capabilities) {
-    const role = cap.roleId
-    for (const v of cap.trainedVols) {
-      const vol = v.volunteerId
-      capabilities[vol - 1][role - 1] = true
+  let capable = capabilityStore.capabilities.map((cap) => {
+    // const role = cap.roleId
+    return { set: cap.trainedVols.map((v) => `v${v.volunteerId}`) }
+  })
+  let unavailable = volunteerStore.volunteers.map((vol) => {
+    return { set: vol.unavailable.map((occ) => `o${occ}`) }
+  })
+  let preferred = volunteerStore.volunteers.map((vol) => {
+    let pref = Array(roleStore.roles.length).fill({ set: [] })
+    for (const cap of vol.capabilities) {
+      pref[cap.roleId - 1] = { set: cap.preferences.map((occ) => `o${occ}`) }
     }
-  }
-  let availablities = Array(volunteerStore.volunteers.length)
-    .fill()
-    .map(() => Array(settings.occasions).fill(true))
-  for (const vol of volunteerStore.volunteers) {
-    for (const occ of vol.unavailable) {
-      availablities[vol.id - 1][occ - 1] = false
-    }
-  }
+    return pref
+  })
 
   const data = {
-    occasions: settings.occasions,
+    Occasion: Array(settings.occasions)
+      .fill()
+      .map((_, i) => `o${i + 1}`),
     Volunteer: volunteerStore.volunteers.map((v) => `v${v.id}`),
     Role: roleStore.roles.map((r) => `r${r.id}`),
     restrictions: roleStore.roles.map((r) => {
@@ -63,8 +61,9 @@ export async function generateRoster(timeLimit = null) {
       let setObj = { set: rules }
       return setObj
     }),
-    capability: capabilities,
-    availability: availablities,
+    capable: capable,
+    unavailable: unavailable,
+    preferred: preferred,
     exclusive_roles: roleStore.roles.flatMap((r) =>
       r.roleClashes.filter((i) => i > r.id).map((i) => [{ e: `r${r.id}` }, { e: `r${i}` }])
     )
@@ -98,6 +97,8 @@ export async function generateRoster(timeLimit = null) {
         roleId: r.id,
         occasions: assignment.map((li) => Number(li[i].e.substring(1)))
       }))
+      roster['num_roles_distribution'] = result.solution.output.json.num_roles
+      roster['preferences_distribution'] = result.solution.output.json.fulfilled_preferences
     }
   } catch (error) {
     console.error(error)
