@@ -29,12 +29,12 @@ import CapabilitiesView from '../views/CapabilitiesView.vue'
           <CapabilitiesView />
         </div>
       </div>
-      <hr class="my-1" />
+      <!-- <hr class="my-1" />
       <div class="row">
         <div class="col-6">
           <SettingsView />
         </div>
-      </div>
+      </div> -->
       <div class="mb-7"></div>
     </div>
   </main>

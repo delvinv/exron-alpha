@@ -30,21 +30,44 @@ const onCountdownEnd = () => {
 </script>
 
 <template>
-  <div class="home">
-    <!-- <h1>Roster view</h1> -->
+  <div class="row">
+    <div class="col-6">
+      <div class="card flex justify-content-center">
+        <Button
+          type="button"
+          class="btn btn-primary generateButton"
+          :disabled="loading"
+          @click="startCountdown"
+        >
+          <vue-countdown
+            v-if="loading"
+            :time="sliderValue"
+            @end="onCountdownEnd"
+            v-slot="{ totalSeconds }"
+            >Generate again in {{ totalSeconds }}s</vue-countdown
+          >
+          <span v-else>Generate New Roster</span>
+        </Button>
+        <div class="w-14rem sliderDiv">
+          <InputText v-model.number="sliderValue" class="w-full" />
+          <Slider v-model="sliderValue" :min="2000" :max="120000" :step="1000" class="w-full" />
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="formgrid grid">
-    <div class="field col">
-      <h2>Select your roster here:</h2>
+  <div class="row">
+    <div class="col-4">
+      <h3>1. Select roster:</h3>
       <RosterSelector></RosterSelector>
     </div>
-    <div class="field col">
-      <h3>Here's the roster you selected</h3>
+    <div class="col-8">
+      <h3>2. Analyse roster</h3>
       <RosterTable></RosterTable>
     </div>
-    <div class="field col">
-      <h3>Insights for this roster:</h3>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <h3>3. Insights</h3>
       <RosterAnalytics></RosterAnalytics>
     </div>
   </div>
@@ -55,28 +78,6 @@ const onCountdownEnd = () => {
             <Slider v-model="sliderValue" :min="2000" :max="120000" :step="1000" class="w-full" />
     </div>
   </div> -->
-
-  <div class="card flex justify-content-center">
-    <Button
-      type="button"
-      class="btn btn-primary generateButton"
-      :disabled="loading"
-      @click="startCountdown"
-    >
-      <vue-countdown
-        v-if="loading"
-        :time="sliderValue"
-        @end="onCountdownEnd"
-        v-slot="{ totalSeconds }"
-        >Generate again in {{ totalSeconds }}s</vue-countdown
-      >
-      <span v-else>Generate New Roster</span>
-    </Button>
-    <div class="w-14rem sliderDiv">
-      <InputText v-model.number="sliderValue" class="w-full" />
-      <Slider v-model="sliderValue" :min="2000" :max="120000" :step="1000" class="w-full" />
-    </div>
-  </div>
 </template>
 
 <style>
