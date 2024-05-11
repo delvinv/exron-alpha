@@ -36,7 +36,7 @@ const onCountdownEnd = () => {
 
   <div class="formgrid grid">
     <div class="field col">
-      <h1>Select your roster here:</h1>
+      <h2>Select your roster here:</h2>
       <RosterSelector></RosterSelector>
     </div>
     <div class="field col">

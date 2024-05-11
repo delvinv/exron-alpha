@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import VolunteersView from '../views/VolunteersView.vue'
+// import VolunteersView from '../views/VolunteersView.vue'
+import DashboardView from '../views/DashboardView.vue'
 import RolesView from '../views/RolesView.vue'
 import SettingsView from '../views/SettingsView.vue'
 import RosterView from '../views/RosterView.vue'
@@ -10,9 +11,14 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'volunteers',
-      component: VolunteersView
+      name: 'dashboard',
+      component: DashboardView
     },
+    // {
+    //   path: '/',
+    //   name: 'volunteers',
+    //   component: VolunteersView
+    // },
     {
       path: '/roles',
       name: 'roles',

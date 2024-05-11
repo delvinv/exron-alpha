@@ -33,7 +33,7 @@ const onRowGroupCollapse = (event) => {
 </script>
 
 <template>
-  <h1>Training and Volunteer Capabilities</h1>
+  <h2>Training and Volunteer Capabilities</h2>
   <!-- <pre> {{ capabilitiesStore.capabilities[1][1].preference.toString() }}</pre> -->
 
   <DataTable

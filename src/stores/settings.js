@@ -7,6 +7,7 @@ export const useSettingsStore = defineStore({
     orgName: null,
     occasions: 4,
     weeklySchedule: true,
+    debug: true,
     loading: false,
     error: null
   }),
@@ -21,6 +22,9 @@ export const useSettingsStore = defineStore({
     },
     setOccasions(num) {
       this.occasions = num
+    },
+    setDebug(bool) {
+      this.debug = bool
     }
     /* async fetchPosts() {
       this.posts = []

@@ -10,7 +10,7 @@ const settings = useSettingsStore()
 </script>
 
 <template>
-  <h1>Settings for {{ settings.orgName }}</h1>
+  <h2>Settings for {{ settings.orgName }}</h2>
   <div class="settings">
     <div class="section">
       <label for="username">Organisation</label>
@@ -27,6 +27,11 @@ const settings = useSettingsStore()
       />
       <small id="occasions-help">How many occasions to roster for?</small>
     </div>
+    <div class="section">
+      <span>Debug mode: </span>
+      <Checkbox v-model="settings.debug" :binary="true" />
+      <small id="debug-help">Turn on debug mode?</small>
+    </div>
 
     <!-- <div class="card flex justify-content-center">
         <span class="p-buttonset">
@@ -40,7 +45,7 @@ const settings = useSettingsStore()
 
 <style scoped>
 .settings {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   text-align: left;

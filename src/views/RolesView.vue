@@ -73,7 +73,7 @@ const onCellEditComplete = (event) => {
 </script>
 
 <template>
-  <h1>Roles available at {{ settings.orgName }}</h1>
+  <h2 class="mt-5">Roles available at {{ settings.orgName }}</h2>
   <!-- editMode="cell" @cell-edit-complete="onCellEditComplete" -->
   <Toolbar class="mb-4">
     <template #start>

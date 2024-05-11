@@ -26,6 +26,25 @@ const occasions = Array(settings.occasions) // Creates an array with length base
     field: 'instance' + (i + 1), // Generates a field property with a string value ('instance' + (i + 1))
     header: 'Instance ' + (i + 1) // Generates a header property with a string value ('Instance ' + (i + 1))
   }))
+
+  const rowClass = (data) => {
+    return [{ 'bg-primary': data.category === 'Fitness' }];
+};
+const rowStyle = (data) => {
+    if (data.quantity === 0) {
+        return { fontWeight: 'bold', fontStyle: 'italic' };
+    }
+};
+const stockClass = (data) => {
+    return [
+        'border-circle w-2rem h-2rem inline-flex font-bold justify-content-center align-items-center text-sm',
+        {
+            'bg-red-100 text-red-900': data.quantity === 0,
+            'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
+            'bg-teal-100 text-teal-900': data.quantity > 10
+        }
+    ];
+};
 </script>
 
 <!-- Need a programmatic way of displaying data from roster here -->
@@ -34,7 +53,9 @@ const occasions = Array(settings.occasions) // Creates an array with length base
     <DataTable
       :value="
         rosterStore.rosters.find((x) => x.rosterId === rosterSelectedStore.rosterSelected).roster
-      "
+      " 
+      :rowClass="rowClass"   
+      :rowStyle="rowStyle"
       size="small"
       scrollable
       scrollHeight="400px"
@@ -56,11 +77,6 @@ const occasions = Array(settings.occasions) // Creates an array with length base
           <span>{{ getVolunteerById(slotProps.data.occasions[index]).forename }}<br /></span>
         </template>
       </Column>
-
-      <!-- <Column field="instance1" header="instance1" style="min-width: 100px"></Column>
-            <Column field="instance2" header="instance2" style="min-width: 200px"></Column>
-            <Column field="instance3" header="instance3" style="min-width: 200px"></Column>
-            <Column field="instance4" header="instance4" style="min-width: 200px"></Column> -->
     </DataTable>
   </div>
 </template>

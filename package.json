@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^2.1.2",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
     "dayspan-vuetify": "^0.4.0",
     "pinia": "^2.1.7",
     "primeflex": "^3.3.1",

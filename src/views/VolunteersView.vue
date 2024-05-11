@@ -23,6 +23,7 @@ const onCellEditComplete = (event) => {
 </script>
 
 <template>
+  <h2 class="mt-5">Volunteers List</h2>
   <DataTable
     stripedRows
     :value="volunteers.volunteers"
