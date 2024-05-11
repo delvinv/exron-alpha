@@ -111,7 +111,7 @@ const onCellEditComplete = (event) => {
     }"
   >
     <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
-    <Column field="id" header="id" sortable></Column>
+    <!-- <Column field="id" header="id" sortable></Column> -->
     <Column field="name" header="Name" sortable>
       <template #body="{ data, field }">
         {{ data[field] }}
@@ -125,7 +125,7 @@ const onCellEditComplete = (event) => {
         <InputNumber v-model="data[field]" inputId="minmax" :min="0" :max="10" autofocus />
       </template>
     </Column>
-    <Column field="isNoOtherTasks" header="Other Tasks?" sortable>
+    <Column field="isNoOtherTasks" header="Exclusive?" sortable>
       <template #body="{ data, field }">
         <Checkbox v-model="data[field]" :binary="true" />
       </template>
@@ -133,7 +133,7 @@ const onCellEditComplete = (event) => {
         <Checkbox v-model="data[field]" :binary="true" />
       </template>
     </Column>
-    <Column field="isNoConsecutiveWeeks" header="Consecutive?" sortable>
+    <Column field="isNoConsecutiveWeeks" header="Break?" sortable>
       <template #body="{ data, field }">
         <Checkbox v-model="data[field]" :binary="true" />
       </template>

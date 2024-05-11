@@ -11,7 +11,7 @@ const volunteers = [
     id: 1,
     forename: 'Alan',
     surname: 'B',
-    unavailable: [1, 2],
+    unavailable: [1],
     capabilities: [
       { roleId: 6, preferences: [] },
       { roleId: 7, preferences: [2, 4] },
@@ -438,7 +438,7 @@ const roles = [
     name: 'Comm Helpers',
     numbers: 4,
     isNoOtherTasks: false,
-    isNoConsecutiveWeeks: true,
+    isNoConsecutiveWeeks: false,
     roleClashes: [1]
   },
   {
@@ -454,7 +454,7 @@ const roles = [
     name: 'Comm Setup',
     numbers: 2,
     isNoOtherTasks: false,
-    isNoConsecutiveWeeks: true,
+    isNoConsecutiveWeeks: false,
     roleClashes: []
   },
   {
@@ -462,7 +462,7 @@ const roles = [
     name: 'Comm Washup',
     numbers: 1,
     isNoOtherTasks: false,
-    isNoConsecutiveWeeks: true,
+    isNoConsecutiveWeeks: false,
     roleClashes: []
   },
   {
@@ -470,7 +470,7 @@ const roles = [
     name: 'Counters',
     numbers: 2,
     isNoOtherTasks: false,
-    isNoConsecutiveWeeks: true,
+    isNoConsecutiveWeeks: false,
     roleClashes: []
   },
   {
@@ -478,7 +478,7 @@ const roles = [
     name: 'Kids Min',
     numbers: 1,
     isNoOtherTasks: false,
-    isNoConsecutiveWeeks: true,
+    isNoConsecutiveWeeks: false,
     roleClashes: []
   },
   {
@@ -486,7 +486,7 @@ const roles = [
     name: 'Morning Tea',
     numbers: 4,
     isNoOtherTasks: false,
-    isNoConsecutiveWeeks: true,
+    isNoConsecutiveWeeks: false,
     roleClashes: []
   },
   {

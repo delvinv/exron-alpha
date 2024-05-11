@@ -5,17 +5,52 @@ import RosterTable from '@/components/Roster/RosterTable.vue'
 import RosterAnalytics from '@/components/Roster/RosterAnalytics.vue'
 import { useRosterStore } from '@/stores/roster'
 import { generateRoster } from '@/services/Scheduler'
+import { useToast } from 'primevue/usetoast'
 
 const loading = ref(false)
 const sliderValue = ref(5000)
 const rosterStore = useRosterStore()
+const toast = useToast()
 
 const load = async () => {
   console.log('waiting for.. ' + sliderValue.value)
   loading.value = true
   let roster = await generateRoster(sliderValue.value)
-  console.log(roster)
-  rosterStore.addRoster(roster)
+  console.log(roster.status)
+  // if roster.status exactly equals the string OPTIMAL_SOLUTION, add the roster to the store
+  if (roster.status === 'OPTIMAL_SOLUTION') {
+    rosterStore.addRoster(roster)
+    toast.add({
+      severity: 'success',
+      summary: 'OPTIMAL_SOLUTION',
+      detail: 'Found a perfect roster matching all conditions!',
+      life: 3000
+    })
+  } else if (roster.status === 'SATISFIED') {
+    rosterStore.addRoster(roster)
+    toast.add({
+      severity: 'success',
+      summary: 'SATISFIED',
+      detail: 'Need to find out what this means!!',
+      life: 3000
+    })
+  } else if (roster.status === 'UNKNOWN') {
+    console.log('ROSTER GENERATOR: Needs more time')
+    toast.add({
+      severity: 'warn',
+      summary: 'NEED_MORE_TIME',
+      detail: 'ROSTER GENERATOR: Needs more time',
+      life: 3000
+    })
+  } else if (roster.status === 'UNSATISFIABLE') {
+    console.log('ROSTER GENERATOR: Needs more flexibility')
+    toast.add({
+      severity: 'error',
+      summary: 'UNSATISFIABLE',
+      detail: 'ROSTER GENERATOR: Needs more flexibility',
+      life: 3000
+    })
+  }
   loading.value = false
 }
 

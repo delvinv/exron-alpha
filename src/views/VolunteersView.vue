@@ -44,7 +44,7 @@ const onCellEditComplete = (event) => {
       }
     }"
   >
-    <Column field="id" header="id" style="width: 2rem" sortable></Column>
+    <!-- <Column field="id" header="id" style="width: 2rem" sortable></Column> -->
     <Column field="forename" header="Forename" style="width: 5rem" sortable>
       <template #body="{ data, field }">
         {{ data[field] }}

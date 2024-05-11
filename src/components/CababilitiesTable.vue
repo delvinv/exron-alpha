@@ -36,15 +36,15 @@ const onRowGroupCollapse = (event) => {
   <h2>Training and Volunteer Capabilities</h2>
   <!-- <pre> {{ capabilitiesStore.capabilities[1][1].preference.toString() }}</pre> -->
 
+  <!-- @rowgroup-expand="onRowGroupExpand"
+    @rowgroup-collapse="onRowGroupCollapse" 
+  expandableRowGroups-->
   <DataTable
     v-model:expandedRowGroups="expandedRowGroups"
     :value="capabilitiesStore.capabilities"
     tableStyle="min-width: 50rem"
-    expandableRowGroups
     rowGroupMode="subheader"
     groupRowsBy="roleId"
-    @rowgroup-expand="onRowGroupExpand"
-    @rowgroup-collapse="onRowGroupCollapse"
     sortMode="single"
     sortField="roleId"
     :sortOrder="1"
