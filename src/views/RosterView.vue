@@ -70,7 +70,13 @@ const onCountdownEnd = () => {
 
 <template>
   <div class="row">
+    <!-- Select Roster goes here -->
+    <div class="col-5">
+      <h3>1. Select roster...</h3>
+      <RosterSelector></RosterSelector>
+    </div>
     <div class="col-6">
+      <h3>(or create a new one)</h3>
       <div class="card flex justify-content-center">
         <Button
           type="button"
@@ -95,28 +101,22 @@ const onCountdownEnd = () => {
     </div>
   </div>
   <div class="row">
-    <div class="col-4">
-      <h3>1. Select roster:</h3>
-      <RosterSelector></RosterSelector>
-    </div>
-    <div class="col-8">
-      <h3>2. Analyse roster</h3>
+    <div class="col-12">
+      <h3>2. Browse roster</h3>
       <RosterTable></RosterTable>
+      <h5>Legend</h5>
+      <p>
+        <span class="text-decoration-underline">Underline</span> = this person has been rostered for
+        2 consecutive occasions.
+      </p>
     </div>
   </div>
   <div class="row">
     <div class="col-8">
-      <h3>3. Insights</h3>
+      <h3>3. Roster Analytics</h3>
       <RosterAnalytics></RosterAnalytics>
     </div>
   </div>
-  <!-- <div class="card flex justify-content-center">
-    <Button type="button" label="Generate New Roster" icon="pi pi-search" :loading="loading" @click="load" class="generateButton"/>
-    <div class="w-14rem sliderDiv">
-            <InputText v-model.number="sliderValue" class="w-full" />
-            <Slider v-model="sliderValue" :min="2000" :max="120000" :step="1000" class="w-full" />
-    </div>
-  </div> -->
 </template>
 
 <style>

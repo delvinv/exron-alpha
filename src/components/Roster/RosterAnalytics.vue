@@ -1,26 +1,3 @@
-<!-- Insights into each roster -->
-<!-- Takes a rosterID as input and crunches that roster for information such as: 
-- people who are rostered most weeks and numbers
-- people who are not rostered at al...
--->
-<template>
-  <div class="card flex justify-content-center">
-    <h4>Roster id: {{ rosterSelectedStore.rosterSelected }}</h4>
-    <p>{{ currentRoster }}</p>
-  </div>
-  <div class="card flex justify-content-center">
-    <!-- FIXME: This is broken.. -->
-    <Button type="button" class="btn btn-primary generateButton" @click="checkRosterAvailability()">
-      Generate Roster Insights
-    </Button>
-  </div>
-
-  <div>Hello world</div>
-  <div>
-    <span>{{ getVolunteerRosterCounts() }}<br /></span>
-  </div>
-</template>
-
 <script setup>
 import { useRosterStore } from '@/stores/roster'
 import { useRosterSelectedStore } from '@/stores/rosterSelected'
@@ -89,5 +66,38 @@ const getVolunteerRosterCounts = () => {
   return volunteerRosterCounts
 }
 </script>
+
+<!-- Insights into each roster -->
+<!-- Takes a rosterID as input and crunches that roster for information such as: 
+- people who are rostered most weeks and numbers
+- people who are not rostered at al...
+-->
+<template>
+  <div class="card flex justify-content-center">
+    <h4>Roster id: {{ rosterSelectedStore.rosterSelected }}</h4>
+    <p>{{ currentRoster }}</p>
+  </div>
+  <div class="card flex justify-content-center">
+    <!-- FIXME: This is broken.. -->
+    <Button type="button" class="btn btn-primary generateButton" @click="checkRosterAvailability()">
+      Generate Roster Insights
+    </Button>
+  </div>
+
+  <h4>Volunteer roster counts</h4>
+  <p class="fst-italic">
+    Not implemented. This section will go through the current roster and for each volunteer, return
+    the number of times they are rostered per week
+  </p>
+  <div>
+    <span>{{ getVolunteerRosterCounts() }}<br /></span>
+  </div>
+
+  <h4>Availability Check</h4>
+  <p class="fst-italic">
+    Not implemented. This section will go through the current roster and for each volunteer, check
+    against their availability to see if there is a clash.
+  </p>
+</template>
 
 <style scoped></style>

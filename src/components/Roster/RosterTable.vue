@@ -50,13 +50,55 @@ const stockClass = (data) => {
  *  2. Compare this with the current volunteerId
  * 3. If they match, return the string 'consecutive-volunteer'
  */
-const getConsecutiveVolunteerStatus = (data, index) => {
+const getConditionalFormattingClasses = (data, index) => {
+  const currentVolunteerId = data.occasions[index]
+
+  /**
+   * 1. Consecutive weeks check
+   * If the previous or next volunteerId is the same as the current volunteerId, return 'consecutive-volunteer'
+   */
   const previousVolunteerId = index > 0 ? data.occasions[index - 1] : null
   const nextVolunteerId = index > 0 ? data.occasions[index + 1] : null
-  const currentVolunteerId = data.occasions[index]
-  return previousVolunteerId === currentVolunteerId || currentVolunteerId === nextVolunteerId
-    ? 'consecutive-volunteer'
-    : 'non-consecutive-volunteer'
+
+  let classesList =
+    previousVolunteerId === currentVolunteerId || currentVolunteerId === nextVolunteerId
+      ? 'consecutive-volunteer'
+      : 'non-consecutive-volunteer'
+
+  /**
+   * 2. Check if the volunteer is unavailable
+   * If the current volunteerId is in the unavailable array of the volunteer, return 'unavailable-volunteer'
+   */
+  // TODO: Implement this
+  // Get the volunteer object from the volunteerId
+  const volunteers = volunteerStore.volunteers
+  const volunteer = volunteers.find((volunteer) => volunteer.volunteerId === currentVolunteerId)
+  console.log(volunteer)
+  // Then check if the current occasion is in the unavailable array of the volunteer
+  // const availabilityClass = volunteer.unavailable.includes(index)
+  //   ? 'unavailable-volunteer'
+  //   : 'available-volunteer'
+  // if (availabilityClass === 'unavailable-volunteer') {
+  //   console.log(
+  //     'Volunteer ' +
+  //       volunteer.forename +
+  //       ' ' +
+  //       volunteer.surname +
+  //       ' is unavailable for occasion ' +
+  //       index
+  //   )
+  //   classesList += ' ' + availabilityClass
+  // }
+
+  /**
+   * 3. Check how many roles this volunteer is rostered for this week
+   * If the volunteer is rostered for more than 1 role, return 'multi-role-volunteer'
+   */
+  // TODO: Implement this
+
+  classesList += ' helloWorld'
+  // console.log('classesList: ' + classesList + typeof classesList)
+  return classesList
 }
 </script>
 
@@ -86,8 +128,9 @@ const getConsecutiveVolunteerStatus = (data, index) => {
         :field="occasion.field"
         :header="occasion.header"
       >
+        <!-- Conditional formatting of each cell based on errors/warnings.. -->
         <template #body="slotProps">
-          <span :class="getConsecutiveVolunteerStatus(slotProps.data, index)"
+          <span :class="getConditionalFormattingClasses(slotProps.data, index)"
             >{{ getVolunteerById(slotProps.data.occasions[index]).forename }}<br
           /></span>
         </template>
