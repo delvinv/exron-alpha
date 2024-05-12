@@ -71,9 +71,13 @@ const getConditionalFormattingClasses = (data, index) => {
    */
   // TODO: Implement this
   // Get the volunteer object from the volunteerId
-  const volunteers = volunteerStore.volunteers
-  const volunteer = volunteers.find((volunteer) => volunteer.volunteerId === currentVolunteerId)
-  console.log(volunteer)
+  // const volunteers = volunteerStore.volunteers
+  // const volunteer = volunteers.find((volunteer) => volunteer.volunteerId === currentVolunteerId)
+  // console.log(volunteers)
+
+  // FIXME: This is not working but could be the new way to do things!
+  // Try new approach with getCurrentVolunteer (computed property)
+  // https://pinia.vuejs.org/core-concepts/getters.html#Passing-arguments-to-getters
   // Then check if the current occasion is in the unavailable array of the volunteer
   // const availabilityClass = volunteer.unavailable.includes(index)
   //   ? 'unavailable-volunteer'
