@@ -149,11 +149,7 @@ const volunteers = [
     forename: 'Boutros',
     surname: 'J',
     unavailable: [],
-    capabilities: [
-      { roleId: 1, preferences: [] },
-      { roleId: 2, preferences: [] },
-      { roleId: 4, preferences: [] }
-    ]
+    capabilities: [{ roleId: 4, preferences: [] }]
   },
   {
     id: 17,
@@ -410,6 +406,14 @@ const roles = [
     roleClashes: []
   },
   {
+    id: 14,
+    name: 'Music Lead',
+    numbers: 1,
+    isNoOtherTasks: true,
+    isNoConsecutiveWeeks: true,
+    roleClashes: []
+  },
+  {
     id: 3,
     name: 'Musicians',
     numbers: 2,
@@ -506,34 +510,39 @@ const capabilities = [
   {
     roleId: 1,
     trainedVols: [
-      { volunteerId: 3, preferences: [] },
       { volunteerId: 11, preferences: [] },
-      { volunteerId: 16, preferences: [] },
-      { volunteerId: 33, preferences: [] },
+      // { volunteerId: 3, preferences: [] },
+      // { volunteerId: 16, preferences: [] },
+      // { volunteerId: 33, preferences: [] },
       { volunteerId: 21, preferences: [] }
     ]
   },
   {
     roleId: 2,
     trainedVols: [
-      { volunteerId: 33, preferences: [] },
       { volunteerId: 40, preferences: [] },
       { volunteerId: 14, preferences: [] },
-      { volunteerId: 16, preferences: [] },
+      // { volunteerId: 33, preferences: [] },
+      // { volunteerId: 16, preferences: [] },
       { volunteerId: 22, preferences: [] }
+    ]
+  },
+  {
+    roleId: 14,
+    trainedVols: [
+      { volunteerId: 13, preferences: [] },
+      { volunteerId: 28, preferences: [] },
+      { volunteerId: 33, preferences: [] },
+      { volunteerId: 35, preferences: [] }
     ]
   },
   {
     roleId: 3,
     trainedVols: [
       { volunteerId: 6, preferences: [] },
-      { volunteerId: 13, preferences: [] },
       { volunteerId: 18, preferences: [] },
       { volunteerId: 27, preferences: [] },
-      { volunteerId: 28, preferences: [] },
-      { volunteerId: 32, preferences: [] },
-      { volunteerId: 33, preferences: [] },
-      { volunteerId: 35, preferences: [] }
+      { volunteerId: 32, preferences: [] }
     ]
   },
   {

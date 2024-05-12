@@ -27,24 +27,37 @@ const occasions = Array(settings.occasions) // Creates an array with length base
     header: 'Instance ' + (i + 1) // Generates a header property with a string value ('Instance ' + (i + 1))
   }))
 
-  const rowClass = (data) => {
-    return [{ 'bg-primary': data.category === 'Fitness' }];
-};
+const rowClass = (data) => {
+  return [{ 'bg-primary': data.category === 'Fitness' }]
+}
 const rowStyle = (data) => {
-    if (data.quantity === 0) {
-        return { fontWeight: 'bold', fontStyle: 'italic' };
-    }
-};
+  if (data.quantity === 0) {
+    return { fontWeight: 'bold', fontStyle: 'italic' }
+  }
+}
 const stockClass = (data) => {
-    return [
-        'border-circle w-2rem h-2rem inline-flex font-bold justify-content-center align-items-center text-sm',
-        {
-            'bg-red-100 text-red-900': data.quantity === 0,
-            'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
-            'bg-teal-100 text-teal-900': data.quantity > 10
-        }
-    ];
-};
+  return [
+    'border-circle w-2rem h-2rem inline-flex font-bold justify-content-center align-items-center text-sm',
+    {
+      'bg-red-100 text-red-900': data.quantity === 0,
+      'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
+      'bg-teal-100 text-teal-900': data.quantity > 10
+    }
+  ]
+}
+
+/** 1. Get the previous and next volunteerIds
+ *  2. Compare this with the current volunteerId
+ * 3. If they match, return the string 'consecutive-volunteer'
+ */
+const getConsecutiveVolunteerStatus = (data, index) => {
+  const previousVolunteerId = index > 0 ? data.occasions[index - 1] : null
+  const nextVolunteerId = index > 0 ? data.occasions[index + 1] : null
+  const currentVolunteerId = data.occasions[index]
+  return previousVolunteerId === currentVolunteerId || currentVolunteerId === nextVolunteerId
+    ? 'consecutive-volunteer'
+    : 'non-consecutive-volunteer'
+}
 </script>
 
 <!-- Need a programmatic way of displaying data from roster here -->
@@ -53,8 +66,8 @@ const stockClass = (data) => {
     <DataTable
       :value="
         rosterStore.rosters.find((x) => x.rosterId === rosterSelectedStore.rosterSelected).roster
-      " 
-      :rowClass="rowClass"   
+      "
+      :rowClass="rowClass"
       :rowStyle="rowStyle"
       size="small"
       scrollable
@@ -74,7 +87,9 @@ const stockClass = (data) => {
         :header="occasion.header"
       >
         <template #body="slotProps">
-          <span>{{ getVolunteerById(slotProps.data.occasions[index]).forename }}<br /></span>
+          <span :class="getConsecutiveVolunteerStatus(slotProps.data, index)"
+            >{{ getVolunteerById(slotProps.data.occasions[index]).forename }}<br
+          /></span>
         </template>
       </Column>
     </DataTable>
@@ -84,5 +99,8 @@ const stockClass = (data) => {
 <style>
 .roleName {
   font-weight: bold;
+}
+.consecutive-volunteer {
+  text-decoration: underline;
 }
 </style>

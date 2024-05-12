@@ -62,17 +62,17 @@ const onRowGroupCollapse = (event) => {
     <Column field="trainedVols" header="Volunteer Id" style="width: 20%">
       <template #body="slotProps">
         <span v-for="vol in slotProps.data.trainedVols"
-          >{{ getVolunteerById(vol.volunteerId).forename }}<br
-        /></span>
+          >{{ getVolunteerById(vol.volunteerId).forename }} ({{ vol.preferences.toString() }})
+        </span>
       </template>
     </Column>
-    <Column field="trainedVols" header="Preferences" style="width: 20%">
+    <!-- <Column field="trainedVols" header="Preferences" style="width: 20%">
       <template #body="slotProps">
         <span v-for="vol in slotProps.data.trainedVols"
           >{{ vol.preferences.toString() }}<br
         /></span>
       </template>
-    </Column>
+    </Column> -->
   </DataTable>
   <Toast />
 </template>

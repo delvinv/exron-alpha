@@ -12,6 +12,10 @@ const sliderValue = ref(5000)
 const rosterStore = useRosterStore()
 const toast = useToast()
 
+/**
+ * Load a new roster
+ * Also shows meaningful notifications to the user
+ */
 const load = async () => {
   console.log('waiting for.. ' + sliderValue.value)
   loading.value = true

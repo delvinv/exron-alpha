@@ -9,14 +9,16 @@
     <p>{{ currentRoster }}</p>
   </div>
   <div class="card flex justify-content-center">
-    <Button
-      type="button"
-      class="btn btn-primary generateButton"
-      @click="checkRosterAvailability()"
-    >
+    <!-- FIXME: This is broken.. -->
+    <Button type="button" class="btn btn-primary generateButton" @click="checkRosterAvailability()">
       Generate Roster Insights
     </Button>
-    </div>
+  </div>
+
+  <div>Hello world</div>
+  <div>
+    <span>{{ getVolunteerRosterCounts() }}<br /></span>
+  </div>
 </template>
 
 <script setup>
@@ -34,7 +36,7 @@ const rosterSelectedStore = useRosterSelectedStore()
 const currentRoster = rosterStore.rosters.find(
   (x) => x.rosterId === rosterSelectedStore.rosterSelected
 ).roster
-console.log("Here is the current roster: ")
+console.log('Here is the current roster: ')
 console.log(currentRoster)
 
 // Object to store volunteerId counts
@@ -56,20 +58,36 @@ const generateRosterInsights = () => {
 }
 
 const checkRosterAvailability = () => {
-    // Iterate through every volunteer in currentRoster array and 
-    // check if volunteer is unavailable by comparing the current occasion with 'unavailable' array of useVolunteerStore()
-    currentRoster.forEach(({ occasions }, index) => {
-      occasions.forEach((volunteerId) => {
+  // Iterate through every volunteer in currentRoster array and
+  // check if volunteer is unavailable by comparing the current occasion with 'unavailable' array of useVolunteerStore()
+  currentRoster.forEach(({ occasions }, index) => {
+    occasions.forEach((volunteerId) => {
       const volunteer = getVolunteerById(volunteerId)
       volunteer.unavailable.forEach((unavailableOccasion) => {
         const occasion = occasions[index]
         if (unavailableOccasion === occasion) {
-        console.log(`Volunteer ${volunteer.forename} ${volunteer.surname} is unavailable for occasion ${occasion}`)
+          console.log(
+            `Volunteer ${volunteer.forename} ${volunteer.surname} is unavailable for occasion ${occasion}`
+          )
         }
       })
-      })
     })
-  }
+  })
+}
+
+// TODO: Still need to implement this function
+/**
+ * Go through currentRoster and for each volunteer, return the number of times they are rostered per week
+ */
+const getVolunteerRosterCounts = () => {
+  const volunteerRosterCounts = {}
+  currentRoster.forEach(({ occasions }) => {
+    occasions.forEach((volunteerId) => {
+      volunteerRosterCounts[volunteerId] = (volunteerRosterCounts[volunteerId] || 0) + 1
+    })
+  })
+  return volunteerRosterCounts
+}
 </script>
 
 <style scoped></style>
