@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 import { useRoleStore } from '@/stores/role'
 import { useVolunteerStore } from '@/stores/volunteer'
 import { useRosterStore } from '@/stores/roster'
@@ -46,6 +47,8 @@ const stockClass = (data) => {
   ]
 }
 
+let loopRun = 0
+
 /** 1. Get the previous and next volunteerIds
  *  2. Compare this with the current volunteerId
  * 3. If they match, return the string 'consecutive-volunteer'
@@ -69,30 +72,24 @@ const getConditionalFormattingClasses = (data, index) => {
    * 2. Check if the volunteer is unavailable
    * If the current volunteerId is in the unavailable array of the volunteer, return 'unavailable-volunteer'
    */
-  // TODO: Implement this
-  // Get the volunteer object from the volunteerId
-  // const volunteers = volunteerStore.volunteers
-  // const volunteer = volunteers.find((volunteer) => volunteer.volunteerId === currentVolunteerId)
-  // console.log(volunteers)
+  const currentVolunteerUnavailable = computed(() =>
+    volunteerStore.getCurrentVolunteerUnavailable(currentVolunteerId)
+  )
 
-  // FIXME: This is not working but could be the new way to do things!
-  // Try new approach with getCurrentVolunteer (computed property)
-  // https://pinia.vuejs.org/core-concepts/getters.html#Passing-arguments-to-getters
-  // Then check if the current occasion is in the unavailable array of the volunteer
-  // const availabilityClass = volunteer.unavailable.includes(index)
-  //   ? 'unavailable-volunteer'
-  //   : 'available-volunteer'
-  // if (availabilityClass === 'unavailable-volunteer') {
-  //   console.log(
-  //     'Volunteer ' +
-  //       volunteer.forename +
-  //       ' ' +
-  //       volunteer.surname +
-  //       ' is unavailable for occasion ' +
-  //       index
-  //   )
-  //   classesList += ' ' + availabilityClass
-  // }
+  // TODO: Implement this
+  /**
+   * If contents of currentVolunteerUnavailable.value includes current occasion index,
+   * return 'unavailable-volunteer'
+   */
+  const availabilityClass = currentVolunteerUnavailable.value.includes(index + 1)
+    ? 'unavailable-volunteer'
+    : 'available-volunteer'
+
+  if (availabilityClass === 'unavailable-volunteer') {
+    classesList += ' ' + availabilityClass
+  } else {
+    classesList += ' ' + availabilityClass
+  }
 
   /**
    * 3. Check how many roles this volunteer is rostered for this week
@@ -149,5 +146,9 @@ const getConditionalFormattingClasses = (data, index) => {
 }
 .consecutive-volunteer {
   text-decoration: underline;
+}
+.unavailable-volunteer {
+  color: red;
+  text-decoration: line-through;
 }
 </style>

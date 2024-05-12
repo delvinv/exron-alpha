@@ -109,6 +109,10 @@ const onCountdownEnd = () => {
         <span class="text-decoration-underline">Underline</span> = this person has been rostered for
         2 consecutive occasions.
       </p>
+      <p>
+        <span class="unavailable-volunteer">Red Strikethrough</span> = this person should not be
+        rostered here (based on the availability provided).
+      </p>
     </div>
   </div>
   <div class="row">

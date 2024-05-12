@@ -15,8 +15,12 @@ export const useVolunteerStore = defineStore({
     getVolunteerById: (state) => {
       return (volunteerId) => state.volunteers.find((volunteer) => volunteer.id === volunteerId)
     },
-    getCurrentVolunteer(state) {
-      return state.volunteers.find((volunteer) => volunteer.id === this.currentVolunteer)
+    // getCurrentVolunteerUnavailable() {
+    //   return this.volunteers.find((volunteer) => volunteer.id === this.currentVolunteer).unavailable
+    // },
+    getCurrentVolunteerUnavailable(state) {
+      return (volunteerId) =>
+        state.volunteers.find((volunteer) => volunteer.id === volunteerId).unavailable
     }
   },
   actions: {
