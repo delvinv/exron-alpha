@@ -13,8 +13,8 @@ const rosterSelectedStore = useRosterSelectedStore()
 const currentRoster = rosterStore.rosters.find(
   (x) => x.rosterId === rosterSelectedStore.rosterSelected
 ).roster
-console.log('Here is the current roster: ')
-console.log(currentRoster)
+// console.log('Here is the current roster: ')
+// console.log(currentRoster)
 
 // Object to store volunteerId counts
 const volunteerIdCounts = {}

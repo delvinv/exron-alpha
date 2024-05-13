@@ -81,7 +81,7 @@ const getConditionalFormattingClasses = (data, index) => {
 
   const trainedVolunteers = computed(() => capabilityStore.getCapabilityByRoleId(myRoleId))
 
-  console.log(trainedVolunteers.value)
+  // console.log(trainedVolunteers.value)
 
   // Search for myRoleId inside currentVolunteerCapabilities where currentVolunteerCapabilities.roleId == myRoleId
   // if myRoleId doesnt exist, then append classesList with 'untrained-volunteer'

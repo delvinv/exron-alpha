@@ -11,373 +11,247 @@ const volunteers = [
     id: 1,
     forename: 'Alan',
     surname: 'B',
-    unavailable: [1],
-    capabilities: [
-      { roleId: 6, preferences: [] },
-      { roleId: 7, preferences: [2, 4] },
-      { roleId: 8, preferences: [2, 4] },
-      { roleId: 12, preferences: [] },
-      { roleId: 13, preferences: [] }
-    ]
+    unavailable: [1]
   },
   {
     id: 2,
     forename: 'Bev',
     surname: 'B',
-    unavailable: [1],
-    capabilities: [
-      { roleId: 7, preferences: [2, 4] },
-      { roleId: 8, preferences: [2, 4] },
-      { roleId: 12, preferences: [] },
-      { roleId: 13, preferences: [] }
-    ]
+    unavailable: [1]
   },
   {
     id: 3,
     forename: 'Paul',
     surname: 'B',
-    unavailable: [2],
-    capabilities: [
-      { roleId: 1, preferences: [] },
-      { roleId: 4, preferences: [] },
-      { roleId: 10, preferences: [] }
-    ]
+    unavailable: [2]
   },
   {
     id: 4,
     forename: 'Andy',
     surname: 'C',
-    unavailable: [],
-    capabilities: [{ roleId: 12, preferences: [] }]
+    unavailable: []
   },
   {
     id: 5,
     forename: 'Mitch',
     surname: 'C',
-    unavailable: [],
-    capabilities: [
-      { roleId: 12, preferences: [] },
-      { roleId: 6, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 6,
     forename: 'Nora',
     surname: 'C',
-    unavailable: [],
-    capabilities: [
-      { roleId: 12, preferences: [] },
-      { roleId: 6, preferences: [] },
-      { roleId: 3, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 7,
     forename: 'Barbara',
     surname: 'E',
-    unavailable: [],
-    capabilities: [{ roleId: 13, preferences: [] }]
+    unavailable: []
   },
   {
     id: 8,
     forename: 'Jack',
     surname: 'E',
-    unavailable: [],
-    capabilities: [{ roleId: 13, preferences: [] }]
+    unavailable: []
   },
   {
     id: 9,
     forename: 'Clive',
     surname: 'G',
-    unavailable: [],
-    capabilities: [
-      { roleId: 4, preferences: [] },
-      { roleId: 10, preferences: [] },
-      { roleId: 13, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 10,
     forename: 'Jenny',
     surname: 'G',
-    unavailable: [],
-    capabilities: [{ roleId: 7, preferences: [] }]
+    unavailable: []
   },
   {
     id: 11,
     forename: 'Arthur',
     surname: 'H',
-    unavailable: [],
-    capabilities: [
-      { roleId: 1, preferences: [] },
-      { roleId: 4, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 12,
     forename: 'Catherine',
     surname: 'H',
-    unavailable: [],
-    capabilities: [{ roleId: 11, preferences: [] }]
+    unavailable: []
   },
   {
     id: 13,
     forename: 'Gabriel',
     surname: 'H',
-    unavailable: [],
-    capabilities: [
-      { roleId: 3, preferences: [] },
-      { roleId: 5, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 14,
     forename: 'Nathanael',
     surname: 'H',
-    unavailable: [],
-    capabilities: [{ roleId: 2, preferences: [] }]
+    unavailable: []
   },
   {
     id: 15,
     forename: 'Dorothy',
     surname: 'H',
-    unavailable: [],
-    capabilities: [{ roleId: 12, preferences: [] }]
+    unavailable: []
   },
   {
     id: 16,
     forename: 'Boutros',
     surname: 'J',
-    unavailable: [],
-    capabilities: [{ roleId: 4, preferences: [] }]
+    unavailable: []
   },
   {
     id: 17,
     forename: 'Glenda',
     surname: 'J',
-    unavailable: [],
-    capabilities: [{ roleId: 13, preferences: [] }]
+    unavailable: []
   },
   {
     id: 18,
     forename: 'Michelle',
     surname: 'J',
-    unavailable: [],
-    capabilities: [
-      { roleId: 3, preferences: [] },
-      { roleId: 6, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 19,
     forename: 'Don',
     surname: 'K',
-    unavailable: [],
-    capabilities: [
-      { roleId: 8, preferences: [] },
-      { roleId: 9, preferences: [] },
-      { roleId: 12, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 20,
     forename: 'Val',
     surname: 'K',
-    unavailable: [],
-    capabilities: [
-      { roleId: 8, preferences: [] },
-      { roleId: 9, preferences: [] },
-      { roleId: 12, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 21,
     forename: 'Abin',
     surname: 'M',
-    unavailable: [],
-    capabilities: [{ roleId: 1, preferences: [] }]
+    unavailable: []
   },
   {
     id: 22,
     forename: 'Tesia',
     surname: 'M',
-    unavailable: [],
-    capabilities: [{ roleId: 2, preferences: [] }]
+    unavailable: []
   },
   {
     id: 23,
     forename: 'Tina',
     surname: 'M',
-    unavailable: [],
-    capabilities: [{ roleId: 6, preferences: [] }]
+    unavailable: []
   },
   {
     id: 24,
     forename: 'Vinod',
     surname: 'M',
-    unavailable: [],
-    capabilities: [
-      { roleId: 6, preferences: [] },
-      { roleId: 10, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 25,
     forename: 'Gora',
     surname: 'O',
-    unavailable: [],
-    capabilities: [{ roleId: 12, preferences: [] }]
+    unavailable: []
   },
   {
     id: 26,
     forename: 'Sunday',
     surname: 'O',
-    unavailable: [],
-    capabilities: [{ roleId: 12, preferences: [] }]
+    unavailable: []
   },
   {
     id: 27,
     forename: 'Hoghei',
     surname: 'R',
-    unavailable: [],
-    capabilities: [{ roleId: 3, preferences: [] }]
+    unavailable: []
   },
   {
     id: 28,
     forename: 'Mark',
     surname: 'R',
-    unavailable: [],
-    capabilities: [
-      { roleId: 3, preferences: [] },
-      { roleId: 1, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 29,
     forename: 'Meg',
     surname: 'R',
-    unavailable: [],
-    capabilities: [
-      { roleId: 6, preferences: [] },
-      { roleId: 12, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 30,
     forename: 'Annette',
     surname: 'R',
-    unavailable: [],
-    capabilities: [
-      { roleId: 8, preferences: [1, 3] },
-      { roleId: 9, preferences: [1, 3] },
-      { roleId: 6, preferences: [1, 3] }
-    ]
+    unavailable: []
   },
   {
     id: 31,
     forename: 'Les',
     surname: 'R',
-    unavailable: [],
-    capabilities: [
-      { roleId: 8, preferences: [1, 3] },
-      { roleId: 9, preferences: [1, 3] },
-      { roleId: 6, preferences: [1, 3] },
-      { roleId: 5, preferences: [] },
-      { roleId: 7, preferences: [] },
-      { roleId: 10, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 32,
     forename: 'Morag',
     surname: 'T',
-    unavailable: [],
-    capabilities: [
-      { roleId: 3, preferences: [] },
-      { roleId: 4, preferences: [] },
-      { roleId: 5, preferences: [] },
-      { roleId: 7, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 33,
     forename: 'Delvin',
     surname: 'V',
-    unavailable: [],
-    capabilities: [
-      { roleId: 1, preferences: [] },
-      { roleId: 2, preferences: [] },
-      { roleId: 3, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 34,
     forename: 'Emily',
     surname: 'V',
-    unavailable: [],
-    capabilities: [{ roleId: 13, preferences: [] }]
+    unavailable: []
   },
   {
     id: 35,
     forename: 'Belinda',
     surname: 'W',
-    unavailable: [],
-    capabilities: [
-      { roleId: 3, preferences: [] },
-      { roleId: 7, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 36,
     forename: 'Carol',
     surname: 'Y',
-    unavailable: [],
-    capabilities: [
-      { roleId: 6, preferences: [] },
-      { roleId: 8, preferences: [] },
-      { roleId: 9, preferences: [] },
-      { roleId: 12, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 37,
     forename: 'Terry',
     surname: 'Y',
-    unavailable: [],
-    capabilities: [
-      { roleId: 6, preferences: [] },
-      { roleId: 8, preferences: [] },
-      { roleId: 9, preferences: [] },
-      { roleId: 10, preferences: [] }
-    ]
+    unavailable: []
   },
   {
     id: 38,
     forename: 'Albert',
     surname: ' ',
-    unavailable: [],
-    capabilities: [{ roleId: 10, preferences: [] }]
+    unavailable: []
   },
   {
     id: 39,
     forename: 'Merv',
     surname: ' ',
-    unavailable: [],
-    capabilities: [{ roleId: 9, preferences: [] }]
+    unavailable: []
   },
   {
     id: 40,
     forename: 'Praveen',
     surname: 'E',
-    unavailable: [],
-    capabilities: [{ roleId: 2, preferences: [] }]
+    unavailable: []
   },
   {
     id: 41,
     forename: 'Marg',
     surname: 'J',
-    unavailable: [],
-    capabilities: [{ roleId: 10, preferences: [] }]
+    unavailable: []
   }
 ]
 
