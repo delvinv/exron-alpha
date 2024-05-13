@@ -511,9 +511,9 @@ const capabilities = [
     roleId: 1,
     trainedVols: [
       { volunteerId: 11, preferences: [] },
-      // { volunteerId: 3, preferences: [] },
-      // { volunteerId: 16, preferences: [] },
-      // { volunteerId: 33, preferences: [] },
+      { volunteerId: 3, preferences: [] },
+      { volunteerId: 16, preferences: [] },
+      { volunteerId: 33, preferences: [] },
       { volunteerId: 21, preferences: [] }
     ]
   },
@@ -522,8 +522,8 @@ const capabilities = [
     trainedVols: [
       { volunteerId: 40, preferences: [] },
       { volunteerId: 14, preferences: [] },
-      // { volunteerId: 33, preferences: [] },
-      // { volunteerId: 16, preferences: [] },
+      { volunteerId: 33, preferences: [] },
+      { volunteerId: 16, preferences: [] },
       { volunteerId: 22, preferences: [] }
     ]
   },

@@ -106,13 +106,15 @@ const onCountdownEnd = () => {
       <RosterTable></RosterTable>
       <h5>Legend</h5>
       <p>
-        <span class="text-decoration-underline">Underline</span> = this person has been rostered for
-        2 consecutive occasions.
+        <span class="text-decoration-underline">Underline</span> = this volunteer has been
+        repeat-rostered (consecutive occasions).
       </p>
+      <p><span class="unavailable-volunteer">Strikethrough</span> = volunteer not available.</p>
       <p>
-        <span class="unavailable-volunteer">Red Strikethrough</span> = this person should not be
-        rostered here (based on the availability provided).
+        <span class="untrained-volunteer">Red Border</span> = volunteer not trained for this role.
       </p>
+      <p><span class="non-preferred-occasion">Gold background</span> = Not preferred.</p>
+      <p>* = not implemented yet...</p>
     </div>
   </div>
   <div class="row">

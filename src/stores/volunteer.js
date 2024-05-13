@@ -21,7 +21,18 @@ export const useVolunteerStore = defineStore({
     getCurrentVolunteerUnavailable(state) {
       return (volunteerId) =>
         state.volunteers.find((volunteer) => volunteer.id === volunteerId).unavailable
+    },
+    getCurrentVolunteerCapabilities(state) {
+      return (volunteerId) =>
+        state.volunteers.find((volunteer) => volunteer.id === volunteerId).capabilities
     }
+    // currentVolunteerPreferences: (state) => (volunteerId) => {
+    //   const volunteer = state.volunteers.find((v) => v.id === volunteerId)
+    //   if (!volunteer) return null // Or some default value
+
+    //   const capability = volunteer.capabilities.find((c) => c.roleId === roleId)
+    //   return capability ? capability.preferences : null // Or a default
+    // }
   },
   actions: {
     setVolunteers(volunteers) {

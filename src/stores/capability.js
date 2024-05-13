@@ -10,6 +10,9 @@ export const useCapabilityStore = defineStore({
   getters: {
     getCapabilities(state) {
       return state.capabilities
+    },
+    getCapabilityByRoleId: (state) => {
+      return (roleId) => state.capabilities.find((c) => c.roleId === roleId).trainedVols
     }
   },
   actions: {

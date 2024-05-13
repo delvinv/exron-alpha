@@ -4,8 +4,10 @@ import { useRoleStore } from '@/stores/role'
 import { useVolunteerStore } from '@/stores/volunteer'
 import { useRosterStore } from '@/stores/roster'
 import { useRosterSelectedStore } from '@/stores/rosterSelected'
+import { useCapabilityStore } from '@/stores/capability'
 
 import { useToast } from 'primevue/usetoast'
+import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSettingsStore } from '@/stores/settings'
 
@@ -18,6 +20,7 @@ const rosterStore = useRosterStore()
 const rosterSelectedStore = useRosterSelectedStore()
 
 const settings = useSettingsStore()
+const capabilityStore = useCapabilityStore()
 
 const occasions = Array(settings.occasions) // Creates an array with length based on the value of settings.occasions
   .fill() // Fills the array with undefined values (default fill value is undefined)
@@ -36,23 +39,7 @@ const rowStyle = (data) => {
     return { fontWeight: 'bold', fontStyle: 'italic' }
   }
 }
-const stockClass = (data) => {
-  return [
-    'border-circle w-2rem h-2rem inline-flex font-bold justify-content-center align-items-center text-sm',
-    {
-      'bg-red-100 text-red-900': data.quantity === 0,
-      'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
-      'bg-teal-100 text-teal-900': data.quantity > 10
-    }
-  ]
-}
 
-let loopRun = 0
-
-/** 1. Get the previous and next volunteerIds
- *  2. Compare this with the current volunteerId
- * 3. If they match, return the string 'consecutive-volunteer'
- */
 const getConditionalFormattingClasses = (data, index) => {
   const currentVolunteerId = data.occasions[index]
 
@@ -75,30 +62,86 @@ const getConditionalFormattingClasses = (data, index) => {
   const currentVolunteerUnavailable = computed(() =>
     volunteerStore.getCurrentVolunteerUnavailable(currentVolunteerId)
   )
-
-  // TODO: Implement this
-  /**
-   * If contents of currentVolunteerUnavailable.value includes current occasion index,
-   * return 'unavailable-volunteer'
-   */
   const availabilityClass = currentVolunteerUnavailable.value.includes(index + 1)
     ? 'unavailable-volunteer'
     : 'available-volunteer'
-
-  if (availabilityClass === 'unavailable-volunteer') {
-    classesList += ' ' + availabilityClass
-  } else {
-    classesList += ' ' + availabilityClass
-  }
+  classesList += ' ' + availabilityClass
 
   /**
-   * 3. Check how many roles this volunteer is rostered for this week
+   * 3. Check if this matches against volunteer preferences
+   * If the occasion is not in the preferences list, return 'non-preferred-occasion'
+   */
+  // const currentVolunteerPreferences = ref([])
+  const myRoleId = data.roleId
+  // console.log('myRoleId: ', myRoleId)
+
+  // const currentVolunteerCapabilities = computed(() =>
+  //   volunteerStore.getCurrentVolunteerCapabilities(currentVolunteerId)
+  // )
+
+  const trainedVolunteers = computed(() => capabilityStore.getCapabilityByRoleId(myRoleId))
+
+  console.log(trainedVolunteers.value)
+
+  // Search for myRoleId inside currentVolunteerCapabilities where currentVolunteerCapabilities.roleId == myRoleId
+  // if myRoleId doesnt exist, then append classesList with 'untrained-volunteer'
+
+  const skiledVolunteer = trainedVolunteers.value.find(
+    (tv) => tv.volunteerId === currentVolunteerId
+  )
+  if (skiledVolunteer) {
+    classesList += ' trained-volunteer'
+    if (skiledVolunteer.preferences.length) {
+      const skillPreference = skiledVolunteer.preferences.includes(index + 1)
+        ? 'preferred-occasion'
+        : 'non-preferred-occasion'
+      classesList += ' ' + skillPreference
+    }
+  } else {
+    classesList += ' untrained-volunteer'
+  }
+
+  // WORKS ON OLD CODE..
+  // if (currentVolunteerCapabilities.value.find((capability) => capability.roleId === myRoleId)) {
+  //   classesList += ' trained-volunteer'
+  // } else {
+  //   classesList += ' untrained-volunteer'
+  // }
+
+  // const roleCapabilities = currentVolunteerCapabilities.value.filter(
+  //   (capability) => capability.roleId === myRoleId && !capability.preferences.length
+  // )
+
+  // if (roleCapabilities) {
+  //   console.log(
+  //     currentVolunteerId + '(' + myRoleId + '): preferences => ',
+  //     roleCapabilities.preferences
+  //   )
+  // }
+
+  // const hasRole7Capability = currentVolunteerPreferences.value.some(
+  //   (capability) => capability.roleId === myRoleId
+  // )
+
+  // if (hasRole7Capability) {
+  //   console.log(currentVolunteerId + ' has a preference with roleId: ' + myRoleId)
+  // }
+  // const currentRolePref = currentVolunteerPreferences.value.find((pref) => pref.roleId === myRoleId)
+
+  // If (index + 1) is not in the preferences list, return 'non-preferred-occasion'
+
+  // if (currentRolePref.length > 0) {
+  //   if (!currentRolePref.includes(index + 1)) {
+  //     classesList += ' non-preferred-occasion'
+  //   }
+  // }
+
+  /**
+   * 4. Check how many roles this volunteer is rostered for this week
    * If the volunteer is rostered for more than 1 role, return 'multi-role-volunteer'
    */
   // TODO: Implement this
 
-  classesList += ' helloWorld'
-  // console.log('classesList: ' + classesList + typeof classesList)
   return classesList
 }
 </script>
@@ -150,5 +193,16 @@ const getConditionalFormattingClasses = (data, index) => {
 .unavailable-volunteer {
   color: red;
   text-decoration: line-through;
+}
+.non-preferred-occasion {
+  background-color: gold;
+  font-style: italic;
+}
+/* Red border box for untrained-volunteer */
+.untrained-volunteer {
+  border: 2px solid red;
+  text-decoration: underline overline red;
+  font-family: monospace;
+  color: red;
 }
 </style>
