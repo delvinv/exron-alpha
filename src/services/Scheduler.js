@@ -36,12 +36,17 @@ export async function generateRoster(timeLimit = null) {
   let unavailable = volunteerStore.volunteers.map((vol) => {
     return { set: vol.unavailable.map((occ) => `o${occ}`) }
   })
-  let preferred = volunteerStore.volunteers.map((vol) => {
-    let pref = Array(roleStore.roles.length).fill({ set: [] })
-    for (const cap of vol.capabilities) {
-      pref[cap.roleId - 1] = { set: cap.preferences.map((occ) => `o${occ}`) }
-    }
-    return pref
+  let preferred = Array(volunteerStore.volunteers.length)
+    .fill()
+    .map((_) => Array(roleStore.roles.length).fill({ set: [] }))
+  capabilityStore.capabilities.forEach((cap) => {
+    const role = cap.roleId
+    cap.trainedVols.forEach((v) => {
+      for (const occ of v.preferences) {
+        // TODO: Assumes that volunteer and role ids are 1-indexed
+        preferred[v.volunteerId - 1][role - 1].set.push(`o${occ}`)
+      }
+    })
   })
 
   const data = {
